@@ -1,3 +1,5 @@
 # Openwrt
 
+'''
 opkg update
+'''
