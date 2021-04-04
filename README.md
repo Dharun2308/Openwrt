@@ -1,4 +1,4 @@
-# **Openwrt **
+# Openwrt 
 
 
 https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project
@@ -11,7 +11,7 @@ https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting
 Guide to install USB tethering support for OpenWrt Routers
 
 #### For Android devices
-```
+```ruby
 opkg update
 opkg install kmod-usb-net-rndis kmod-nls-base kmod-usb-core kmod-usb-net kmod-usb-net-cdc-ether kmod-usb2
 ```
@@ -24,7 +24,7 @@ opkg install kmod-usb-net-ipheth usbmuxd libimobiledevice usbutils
 
 ## 4G Dongle support
 
-Suppport for **Huawei 4G Dongles **
+Suppport for Huawei 4G Dongles 
 ```
 opkg update
 opkg install kmod-usb-net-cdc-ether usb-modeswitch comgt-ncm kmod-usb-net-huawei-cdc-ncm
