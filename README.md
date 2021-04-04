@@ -1,5 +1,12 @@
 # Openwrt
 
 '''
-opkg update
+$ opkg update
 '''
+
+
+```
+$ cd ../lorem
+$ npm install
+$ npm start
+```
