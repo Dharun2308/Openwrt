@@ -1,4 +1,4 @@
-# ** Openwrt **
+# **Openwrt **
 
 
 https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project
@@ -24,7 +24,7 @@ opkg install kmod-usb-net-ipheth usbmuxd libimobiledevice usbutils
 
 ## 4G Dongle support
 
-Suppport for Huawei 4G Dongles 
+Suppport for **Huawei 4G Dongles **
 ```
 opkg update
 opkg install kmod-usb-net-cdc-ether usb-modeswitch comgt-ncm kmod-usb-net-huawei-cdc-ncm
