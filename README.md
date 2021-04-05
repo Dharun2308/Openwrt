@@ -2,7 +2,7 @@
 
 ## Table of contents
 * [General info](#general-info)
-* [Connecting to a Wireless Network](#Connecting to a Wireless Network)
+* [Connecting to a Wireless Network](#Connecting-to-a-Wireless-Network)
 * [USB Tethering](#usb-tethering)
 * [Setup](#setup)
 
