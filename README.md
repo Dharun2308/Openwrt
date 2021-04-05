@@ -20,6 +20,48 @@ https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting
 We need Internet connection in our Router to install new packages. 
 
 
+Before doing any actual configuration, the Wi-Fi interface must be enabled in order to be able to scan for networks in the vicinity:
+```ruby
+uci set wireless.@wifi-device[0].disabled=0
+uci commit wireless
+wifi
+```
+Now we can list networks in range substituting your actual wireless interface for wlan0:
+```ruby
+iw dev
+iw dev wlan0 scan
+```
+
+Change the Network configuration file
+
+```ruby
+vi /etc/config/network
+```
+
+Add the next lines to the end:
+```ruby
+config interface 'wan'
+        option proto 'dhcp'
+```
+
+Modify the Wireless configuration file
+```ruby
+vi /etc/config/wireless
+```
+Delete the full config wifi-iface 'default_radio0'.
+Add the follwong with the wifi credentials to the file.
+```ruby
+config wifi-iface 'wifinet0'
+        option network 'wan'
+        option ssid 'YOUR_SSID'
+        option encryption 'psk' #enter your main wifi router's encryption  
+        option device 'radio0'
+        option mode 'sta'
+        option key 'karthikeyan'
+```
+
+
+
 ## USB Tethering
 
 Guide to install USB tethering support for OpenWrt Routers
@@ -59,5 +101,9 @@ opkg install openvpn-openssl luci-app-openvpn
 ```
 
 
+
+
+To see live logs
+logread -f
 
 
