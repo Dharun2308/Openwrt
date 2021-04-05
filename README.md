@@ -1,5 +1,13 @@
 # Openwrt 
 
+## Table of contents
+* [General info](#general-info)
+* [USB Tethering](#technologies)
+* [Setup](#setup)
+
+## General info
+This project is simple Lorem ipsum dolor generator.
+
 
 https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project
 https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax
