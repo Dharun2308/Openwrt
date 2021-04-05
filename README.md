@@ -2,7 +2,7 @@
 
 ## Table of contents
 * [General info](#general-info)
-* [USB Tethering](#technologies)
+* [USB Tethering](#usb-tethering)
 * [Setup](#setup)
 
 ## General info
