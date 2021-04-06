@@ -11,6 +11,7 @@ This project is simple Lorem ipsum dolor generator.
 
 
 https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project
+
 https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax
 
 
@@ -48,8 +49,11 @@ Modify the Wireless configuration file
 ```ruby
 vi /etc/config/wireless
 ```
-Delete the full config wifi-iface 'default_radio0'.
-Add the follwong with the wifi credentials to the file.
+Delete the full config wifi-iface 'default_radio0'
+<img width="689" alt="Screenshot 2021-04-06 at 10 06 01 AM" src="https://user-images.githubusercontent.com/81893327/113659880-a15c4c80-96c0-11eb-9165-ecf70c5d760f.png">
+
+
+Add the follwong with the wifi credentials to the file
 ```ruby
 config wifi-iface 'wifinet0'
         option network 'wan'
