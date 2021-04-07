@@ -5,7 +5,14 @@
 * [Connecting to a Wireless Network](#Connecting-to-a-Wireless-Network)
 * [Luci Web Interface](#Luci-Web-Interface)
 * [USB Tethering](#usb-tethering)
+* [4G Dongle support](#4G-Dongle-support)
+* [Load balancing with multiple WAN interfaces](#Load-balancing-with-multiple-WAN-interfaces)
+* [OpenVPN Client](#OpenVPN-Client)
 * [Setup](#setup)
+
+
+Load balancing/failover with multiple WAN interfaces
+
 
 ## General info
 This project is simple Lorem ipsum dolor generator.
@@ -118,6 +125,21 @@ reboot -f
 ```
 
 
+## Load balancing with multiple WAN interfaces
+
+The mwan3 package provides the following functionality and capabilities:
+
+* Outbound WAN traffic load balancing or fail-over with multiple WAN interfaces based on a numeric weight assignment
+* Monitors each WAN connection using repeated ping tests and can automatically route outbound traffic to another WAN interface if the first WAN interface loses connectivity
+ * Creating outbound traffic rules to customize which outbound connections should use which WAN interface (policy based routing). This can be customised based on source IP, destination IP, source port(s), destination port(s), type of IP protocol etc
+* Physical and/or logical WAN interfaces are supported
+
+### Why should I use mwan3?
+
+* If you have multiple internet connections and you want to control what traffic goes through which specific WAN interface.
+* Mwan3 can handle multiple levels of primary and backup interfaces, load-balanced or not. Different sources can have different primary or backup WANs.
+* Mwan3 uses netfilter mark mask to be compatible with other packages (such as OpenVPN, PPTP VPN, QoS-script, Tunnels, etc) as you can configure traffic to use the default routing table.
+* Mwan3 can also load-balance traffic originating from the router itself
 
 ## OpenVPN Client
 
