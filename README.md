@@ -107,8 +107,8 @@ opkg install kmod-usb-net-ipheth usbmuxd libimobiledevice usbutils
 
 ## 4G Dongle support
 
-Suppport for Huawei 4G Dongles 
-Install the reuired packages and reboot the router for changes to take effect
+Suppport for Huawei 4G Dongles. 
+Install the reuired packages and reboot the router for changes to take effect.
 
 ```ruby
 opkg update
