@@ -141,6 +141,28 @@ The mwan3 package provides the following functionality and capabilities:
 * Mwan3 uses netfilter mark mask to be compatible with other packages (such as OpenVPN, PPTP VPN, QoS-script, Tunnels, etc) as you can configure traffic to use the default routing table.
 * Mwan3 can also load-balance traffic originating from the router itself
 
+### Prerequisites
+
+* Ensure no other multiple WAN or policy routing packages are installed such as multiwan. Having multiwan installed at the same time as mwan3 is known not to work and is obsolete package. 
+* Equally make sure you aren't using an other package that makes use of the same firewall mask value mwan3 uses as this will cause conflicts. 
+* The firewall mask value used by mwan3 is able to be changed in the configuration to avoid this problem.
+
+
+### Pre-configuration
+
+* You will need a minimum of two WAN interfaces for mwan3 to work effectively. While mwan3 is primarily designed for physical WAN connections it can also be used with logical interfaces like OpenVPN or Wireguard.
+
+#### On the command line (SSH)
+```ruby
+opkg update
+opkg install mwan3 luci-app-mwan3
+```
+#### On the web interface (LuCI)
+
+* Go to System → Software
+* click “Update lists” to get the latest package databases
+* In the “Download and install package:” box, enter “luci-app-mwan3” and click OK to download and install the luci-app-mwan3 package and all related packages, including mwan3 itself and all dependencies.
+
 ## OpenVPN Client
 
 List of packages required for using OpenVPN client
