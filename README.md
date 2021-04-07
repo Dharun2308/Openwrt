@@ -121,7 +121,7 @@ Install the required packages and reboot the router for changes to take effect.
 opkg update
 opkg install kmod-usb-net-cdc-ether usb-modeswitch comgt-ncm kmod-usb-net-huawei-cdc-ncm
 opkg install kmod-usb-serial kmod-usb-serial-option kmod-usb-serial-wwan
-reboot -f
+reboot 
 ```
 
 
@@ -187,6 +187,29 @@ speedtest-netperf.sh -t 10 -n 10 -H netperf-eu.bufferbloat.net --sequential
 ```
 
 
+## SQM
+Smart Queue Management (SQM) is our name for an intelligent combination of better packet scheduling (flow queueing) techniques along with with active queue length management (AQM).
+
+```ruby
+opkg update
+opkg install sqm-scripts luci-app-sqm
+reboot
+```
+        
+## NAS
+
+```ruby
+opkg update
+opkg install block-mount kmod-fs-ext4 kmod-usb-storage kmod-usb-ohci kmod-usb-uhci e2fsprogs fdisk kmod-fs-antfs kmod-fs-exfat kmod-fs-hfs kmod-fs-ntfs
+opkg install luci-app-samba4
+reboot
+```
+To make the folder readable and writeable give chmod followed by path of the folder
+```ruby
+chmod 777 /mnt/nas/
+service samba restart
+ ```       
+
 ## OpenVPN Client
 
 List of packages required for using OpenVPN client
@@ -200,19 +223,37 @@ opkg install openvpn-openssl luci-app-openvpn
 
 
 
-To see live logs
-logread -f
-
-ping with specific time duration and interface
-ping -c 1 -I eth0.1 www.google.com
+### To see live logs
+        logread -f
 
 
-UCI commands
+### view disk details 
+        fdisk -l
+        df -h
+
+### ping with specific time duration and interface
+        ping -c 1 -I eth0.1 www.google.com
+
+
+
+### UCI commands
 https://openwrt.org/docs/guide-user/base-system/uci
 
 
-ip table commands
 
+### ip table commands
 https://serverfault.com/questions/904649/route-only-packets-from-specific-interface-over-vpn
+
+        netstat -r
+
+### Scheduling tasks
+https://openwrt.org/docs/guide-user/base-system/cron
+
+
+## run executable .txt in terminal of linux
+https://www.quora.com/How-do-I-run-executable-txt-in-terminal-of-linux
+
+
+
 
 
