@@ -21,7 +21,7 @@ https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting
 
 ## Connecting to a Wireless Network
 
-We need Internet connection in our Router to install new packages. 
+We need Internet connection in the Router to install new packages. 
 
 
 Before doing any actual configuration, the Wi-Fi interface must be enabled in order to be able to scan for networks in the vicinity:
@@ -66,7 +66,7 @@ config wifi-iface 'wifinet0'
         option encryption 'psk' #enter your main wifi router's encryption  (psk, psk2, etc)
         option device 'radio0'
         option mode 'sta'
-        option key 'karthikeyan'
+        option key 'YOUR_PASSWORD'
 ```
 
 For example 
@@ -81,7 +81,7 @@ Now restart the network using the following command to connect to the internet
 
 
 ## Luci Web Interface
-To access and configure the router through browser, install luci package.
+To access and configure the router through a browser, install luci package.
 ```ruby
 opkg update
 opkg install luci
@@ -108,6 +108,8 @@ opkg install kmod-usb-net-ipheth usbmuxd libimobiledevice usbutils
 ## 4G Dongle support
 
 Suppport for Huawei 4G Dongles 
+Install the reuired packages and reboot the router for changes to take effect
+
 ```ruby
 opkg update
 opkg install kmod-usb-net-cdc-ether usb-modeswitch comgt-ncm kmod-usb-net-huawei-cdc-ncm
