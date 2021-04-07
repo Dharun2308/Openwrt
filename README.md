@@ -206,3 +206,13 @@ logread -f
 ping with specific time duration and interface
 ping -c 1 -I eth0.1 www.google.com
 
+
+UCI commands
+https://openwrt.org/docs/guide-user/base-system/uci
+
+
+ip table commands
+
+https://serverfault.com/questions/904649/route-only-packets-from-specific-interface-over-vpn
+
+
