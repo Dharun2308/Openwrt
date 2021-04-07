@@ -163,6 +163,16 @@ opkg install mwan3 luci-app-mwan3
 * click “Update lists” to get the latest package databases
 * In the “Download and install package:” box, enter “luci-app-mwan3” and click OK to download and install the luci-app-mwan3 package and all related packages, including mwan3 itself and all dependencies.
 
+
+
+## Ad Block
+
+```ruby
+opkg update
+opkg install adblock Luci-app-adblock Libustream-mbedlts Tcpdump-mini
+```
+
+
 ## OpenVPN Client
 
 List of packages required for using OpenVPN client
@@ -179,4 +189,6 @@ opkg install openvpn-openssl luci-app-openvpn
 To see live logs
 logread -f
 
+ping with specific time duration and interface
+ping -c 1 -I eth0.1 www.google.com
 
