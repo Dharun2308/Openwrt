@@ -3,7 +3,7 @@
 ## Table of contents
 * [General info](#general-info)
 * [Connecting to a Wireless Network](#Connecting-to-a-Wireless-Network)
-* [Web Interface (luci)](#Web-Interface-(-luci-))
+* [Luci Web Interface](#Luci-Web-Interface)
 * [USB Tethering](#usb-tethering)
 * [Setup](#setup)
 
@@ -80,7 +80,7 @@ Now restart the network using the following command to connect to the internet
 ```
 
 
-## Web Interface (luci)
+## Luci Web Interface
 To access and configure the router through browser, install luci package.
 ```ruby
 opkg update
