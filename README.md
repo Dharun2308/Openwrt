@@ -173,6 +173,20 @@ opkg install adblock luci-app-adblock libustream-mbedtls20201210 tcpdump-mini
 ```
 
 
+## Speed Test 
+
+visit https://forum.openwrt.org/t/speedtest-new-package-to-measure-network-performance/24647/73
+
+```ruby
+opkg update
+opkg install speedtest-netperf
+```
+Getting speed test results
+```ruby
+speedtest-netperf.sh -t 10 -n 10 -H netperf-eu.bufferbloat.net --sequential
+```
+
+
 ## OpenVPN Client
 
 List of packages required for using OpenVPN client
