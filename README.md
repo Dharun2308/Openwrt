@@ -204,7 +204,13 @@ opkg install block-mount kmod-fs-ext4 kmod-usb-storage kmod-usb-ohci kmod-usb-uh
 opkg install luci-app-samba4
 reboot
 ```
-To make the folder readable and writeable give chmod followed by path of the folder
+
+To view current permissions of a folder
+```ruby
+ls -l /mnt/sha3
+ ```       
+To change and make the folder readable and writeable give chmod followed by path of the folder
+
 ```ruby
 chmod 777 /mnt/nas/
 service samba restart
