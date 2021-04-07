@@ -166,10 +166,10 @@ opkg install mwan3 luci-app-mwan3
 
 
 ## Ad Block
-
+ visit https://github.com/Dharun2308/AdBlock for more details
 ```ruby
 opkg update
-opkg install adblock Luci-app-adblock Libustream-mbedlts Tcpdump-mini
+opkg install adblock luci-app-adblock libustream-mbedtls20201210 tcpdump-mini
 ```
 
 
