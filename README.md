@@ -17,7 +17,7 @@ Load balancing/failover with multiple WAN interfaces
 ## General info
 This project is simple Lorem ipsum dolor generator.
 
-pre requisites: Knowledge on openwrt, vi editor , basic linux commands.
+Pre requisites: Knowledge on OpenWrt, vi editor, Basic linux commands.
 
 
 https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project
