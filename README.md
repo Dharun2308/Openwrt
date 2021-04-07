@@ -15,7 +15,7 @@ Load balancing/failover with multiple WAN interfaces
 
 
 ## General info
-This project is simple Lorem ipsum dolor generator.
+
 
 Pre requisites: Knowledge on OpenWrt, vi editor, Basic linux commands.
 
