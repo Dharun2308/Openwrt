@@ -3,7 +3,7 @@
 ## Table of contents
 * [General info](#general-info)
 * [Connecting to a Wireless Network](#Connecting-to-a-Wireless-Network)
-* [Installing Web Interface (luci)](#Installing-Web-Interface-(luci))
+* [Web Interface (luci)](#Installing-Web-Interface-(-luci-))
 * [USB Tethering](#usb-tethering)
 * [Setup](#setup)
 
