@@ -3,6 +3,7 @@
 ## Table of contents
 * [General info](#general-info)
 * [Connecting to a Wireless Network](#Connecting-to-a-Wireless-Network)
+* [Installing Web Interface (luci)](#Installing-Web-Interface-(luci))
 * [USB Tethering](#usb-tethering)
 * [Setup](#setup)
 
@@ -72,6 +73,20 @@ For example
 
 
 <img width="689" alt="Screenshot 2021-04-06 at 10 18 59 AM" src="https://user-images.githubusercontent.com/81893327/113662023-e2566000-96c4-11eb-8c39-641c3576201e.png">
+
+Now restart the network using the following command to connect to the internet
+```ruby
+/etc/init.d/network restart 
+```
+
+
+## Installing Web Interface (luci)
+To access and configure the router through browser, install luci package.
+```ruby
+opkg update
+opkg install luci
+```
+
 
 
 ## USB Tethering
