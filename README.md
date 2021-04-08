@@ -201,6 +201,7 @@ reboot
 ```
         
 ## NAS
+https://openwrt.org/docs/guide-user/services/nas/start
 
 ```ruby
 opkg update
@@ -213,6 +214,8 @@ To view current permissions of a folder
 ```ruby
 ls -l /mnt/sha3
  ```       
+ 
+Samba Server  configuration https://openwrt.org/docs/guide-user/services/nas/samba_configuration
 To change and make the folder readable and writeable give chmod followed by path of the folder
 
 ```ruby
@@ -258,6 +261,23 @@ https://serverfault.com/questions/904649/route-only-packets-from-specific-interf
 
         netstat -r
 
+http://linux-ip.net/html/routing-tables.html
+
+https://openwrt.org/docs/guide-user/network/routing
+
+https://openwrt.org/docs/guide-user/network/ip_rules
+
+https://openwrt.org/docs/guide-user/network/routes_configuration
+
+Policy based routing
+https://linux-club.de/wiki/opensuse/Policy_Based_Routing
+
+ip route examples
+
+https://serverfault.com/questions/953198/why-nexthop-has-invalid-gateway-when-it-seems-to-be-defined
+
+https://serverfault.com/questions/904649/route-only-packets-from-specific-interface-over-vpn
+
 ### Scheduling tasks
 https://openwrt.org/docs/guide-user/base-system/cron
 
@@ -278,6 +298,15 @@ https://openwrt.org/docs/guide-user/additional-software/opkg
 https://www.howtoforge.com/tutorial/linux-search-files-from-the-terminal/
 https://www.plesk.com/blog/various/find-files-in-linux-via-command-line/
 
+## Using storage devices
+
+https://openwrt.org/docs/guide-user/storage/usb-drives
 
 
+## Expanding root filesystem
+https://openwrt.org/docs/guide-user/additional-software/extroot_configuration
+
+## Resetting the router
+
+https://openwrt.org/docs/guide-user/troubleshooting/failsafe_and_factory_reset
 
