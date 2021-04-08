@@ -7,8 +7,12 @@
 * [USB Tethering](#usb-tethering)
 * [4G Dongle support](#4G-Dongle-support)
 * [Load balancing with multiple WAN interfaces](#Load-balancing-with-multiple-WAN-interfaces)
+* [Ad Block](#Ad-Block)
+* [Speed Test](#Speed-Test)
+* [SQM](#SQM)
+* [NAS](#NAS)
 * [OpenVPN Client](#OpenVPN-Client)
-* [Setup](#setup)
+* [Other](#other)
 
 
 Load balancing/failover with multiple WAN interfaces
@@ -227,6 +231,8 @@ opkg install openvpn-openssl luci-app-openvpn
 ```
 
 
+
+## Other
 
 
 ### To see live logs
