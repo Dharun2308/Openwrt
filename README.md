@@ -243,7 +243,7 @@ opkg install openvpn-openssl luci-app-openvpn
         fdisk -l
         df -h
 
-### ping with specific time duration and interface
+### Ping with specific time duration and interface
         ping -c 1 -I eth0.1 www.google.com
 
 
