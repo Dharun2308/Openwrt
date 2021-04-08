@@ -266,6 +266,18 @@ https://openwrt.org/docs/guide-user/base-system/cron
 https://www.quora.com/How-do-I-run-executable-txt-in-terminal-of-linux
 
 
+## OpenWrt Package manager
+
+https://openwrt.org/docs/guide-user/additional-software/opkg
+
+## Finding files
+
+        find . -name "*file-name*"
+        find / -name "*jpg"
+        
+https://www.howtoforge.com/tutorial/linux-search-files-from-the-terminal/
+https://www.plesk.com/blog/various/find-files-in-linux-via-command-line/
+
 
 
 
