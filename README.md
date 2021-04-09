@@ -189,6 +189,8 @@ Getting speed test results
 ```ruby
 speedtest-netperf.sh -t 10 -n 10 -H netperf-eu.bufferbloat.net --sequential
 ```
+Speedtest by ookla
+visit https://github.com/sivel/speedtest-cli
 
 
 ## SQM
