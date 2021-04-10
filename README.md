@@ -318,6 +318,7 @@ https://openwrt.org/docs/techref/initscripts
 
 
 ## Backing up a SD card or cloning it to computer
+https://magpi.raspberrypi.org/articles/back-up-raspberry-pi
 For Ubuntu
         sudo dd bs=4M if=/dev/sdb of=raspbian.img
 Replace /dev/sdb by disk location (Find using df -h command).
