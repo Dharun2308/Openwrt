@@ -312,3 +312,7 @@ https://openwrt.org/docs/guide-user/additional-software/extroot_configuration
 
 https://openwrt.org/docs/guide-user/troubleshooting/failsafe_and_factory_reset
 
+
+## Shell Scripts
+https://openwrt.org/docs/techref/initscripts
+
