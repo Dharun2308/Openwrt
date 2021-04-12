@@ -298,6 +298,7 @@ https://openwrt.org/docs/guide-user/additional-software/opkg
         find / -name "*jpg"
         
 https://www.howtoforge.com/tutorial/linux-search-files-from-the-terminal/
+##
 https://www.plesk.com/blog/various/find-files-in-linux-via-command-line/
 
 ## Using storage devices
