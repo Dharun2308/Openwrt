@@ -326,10 +326,12 @@ https://openwrt.org/docs/techref/initscripts
 ## Backing up a SD card or cloning it to computer
 https://magpi.raspberrypi.org/articles/back-up-raspberry-pi
 For Ubuntu
-        sudo dd bs=4M if=/dev/sdb of=raspbian.img
+    
+    sudo dd bs=4M if=/dev/sdb of=raspbian.img
 Replace /dev/sdb by disk location (Find using df -h command).
  Replace raspbian.img by location and name of the file you want to save.
  
 For Mac
+        
         sudo dd bs=4m if=/dev/rdisk2 of=raspbian.img
  
