@@ -333,5 +333,5 @@ Replace /dev/sdb by disk location (Find using df -h command).
  
 For Mac
         
-        sudo dd bs=4m if=/dev/rdisk2 of=raspbian.img
+    sudo dd bs=4m if=/dev/rdisk2 of=raspbian.img
  
