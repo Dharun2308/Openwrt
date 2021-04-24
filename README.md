@@ -248,6 +248,8 @@ opkg install openvpn-openssl luci-app-openvpn
 ### To see live logs
         logread -f
 
+### To view CPU Usage in Linux
+        top
 
 ### view disk details 
         fdisk -l
