@@ -1,0 +1,144 @@
+Source-Makefile: feeds/openmptcprouter/luci-app-mail/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-mail
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +msmtp-mta
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Mail Configuration
+Maintainer: OpenWrt LuCI community
+Source: 
+License: GPLv3
+Type: ipkg
+Description: LuCI Mail Configuration
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-mail-de
+Default: LUCI_LANG_de||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mail
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mail - de translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mail - Deutsch (German)
+
+@@
+
+Package: luci-i18n-mail-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mail
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mail - fr translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mail - Français (French)
+
+@@
+
+Package: luci-i18n-mail-it
+Default: LUCI_LANG_it||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mail
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mail - it translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mail - Italiano (Italian)
+
+@@
+
+Package: luci-i18n-mail-oc
+Default: LUCI_LANG_oc||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mail
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mail - oc translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mail - 
+
+@@
+
+Package: luci-i18n-mail-ru
+Default: LUCI_LANG_ru||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mail
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mail - ru translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mail - Русский (Russian)
+
+@@
+
+Package: luci-i18n-mail-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mail
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mail - zh-cn translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mail - 简体中文 (Chinese Simplified)
+
+@@
+
+

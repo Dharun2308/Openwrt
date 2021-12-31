@@ -1,0 +1,20 @@
+Source-Makefile: feeds/openmptcprouter/omr-6in4/Makefile
+
+Package: omr-6in4
+Version: 0.4-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: OMR
+Category: OpenMPTCProuter
+Repository: base
+Title: OpenMPTCProuter 6in4
+Maintainer: 
+Source: 
+Type: ipkg
+Description: OpenMPTCProuter 6in4 package
+
+@@
+
+

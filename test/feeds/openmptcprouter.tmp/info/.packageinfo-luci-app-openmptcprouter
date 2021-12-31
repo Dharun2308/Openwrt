@@ -1,0 +1,124 @@
+Source-Makefile: feeds/openmptcprouter/luci-app-openmptcprouter/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-openmptcprouter
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +luci-lib-json +rdisc6 +curl +bind-dig +tracebox
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Support for OpenMPTCProuter
+Maintainer: OpenWrt LuCI community
+Source: 
+License: GPLv3
+Type: ipkg
+Description: LuCI Support for OpenMPTCProuter
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-openmptcprouter-de
+Default: LUCI_LANG_de||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-openmptcprouter
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-openmptcprouter - de translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-openmptcprouter - Deutsch (German)
+
+@@
+
+Package: luci-i18n-openmptcprouter-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-openmptcprouter
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-openmptcprouter - fr translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-openmptcprouter - Français (French)
+
+@@
+
+Package: luci-i18n-openmptcprouter-it
+Default: LUCI_LANG_it||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-openmptcprouter
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-openmptcprouter - it translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-openmptcprouter - Italiano (Italian)
+
+@@
+
+Package: luci-i18n-openmptcprouter-oc
+Default: LUCI_LANG_oc||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-openmptcprouter
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-openmptcprouter - oc translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-openmptcprouter - 
+
+@@
+
+Package: luci-i18n-openmptcprouter-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-openmptcprouter
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-openmptcprouter - zh-cn translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-openmptcprouter - 简体中文 (Chinese Simplified)
+
+@@
+
+

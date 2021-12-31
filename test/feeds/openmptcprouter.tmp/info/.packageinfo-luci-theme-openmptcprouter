@@ -1,0 +1,23 @@
+Source-Makefile: feeds/openmptcprouter/luci-theme-openmptcprouter/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-theme-openmptcprouter
+Submenu: 4. Themes
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: OpenMPTCProuter Theme (default)
+Maintainer: OpenWrt LuCI community
+Source: 
+Type: ipkg
+Description: OpenMPTCProuter Theme (default)
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+

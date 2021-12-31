@@ -1,0 +1,20 @@
+Source-Makefile: feeds/openmptcprouter/omr-quota/Makefile
+
+Package: omr-quota
+Version: 1.0-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +vnstat2
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: OpenMPTCProuter quota
+Maintainer: 
+Source: 
+Type: ipkg
+Description:   A module to enforce quota limit
+
+@@
+
+

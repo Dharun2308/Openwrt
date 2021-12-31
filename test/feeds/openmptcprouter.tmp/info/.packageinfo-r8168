@@ -1,0 +1,20 @@
+Source-Makefile: feeds/openmptcprouter/r8168/Makefile
+
+Package: kmod-r8168
+Submenu: Network Devices
+Version: <LINUX_VERSION>+8.049.02--
+Depends: 
+Conflicts: kmod-r8169
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: Driver for Realtek r8168 chipsets
+Maintainer: 
+Source: r8168-8.049.02.tar.xz
+Type: ipkg
+Description: Driver for Realtek r8168 chipsets
+
+@@
+
+

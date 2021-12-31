@@ -1,0 +1,6496 @@
+Source-Makefile: feeds/openmptcprouter/6in4/Makefile
+
+Package: 6in4
+Version: 270-2
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread @IPV6 +kmod-sit +uclient-fetch
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: IPv6-in-IPv4 configuration support
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: 
+License: GPL-2.0
+Type: ipkg
+Description: Provides support for 6in4 tunnels in /etc/config/network.
+Refer to http://wiki.openwrt.org/doc/uci/network for
+configuration details.
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/aquantia/Makefile
+
+Package: kmod-phy-aquantia
+Submenu: Network Devices
+Version: <LINUX_VERSION>+1.0-1
+Depends: @PCI_SUPPORT @TARGET_x86_64 +kmod-i2c-core +kmod-i2c-algo-bit +kmod-ptp +kmod-hwmon-core +kmod-libphy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: aQuantia device support
+Maintainer: 
+Source: 
+Type: ipkg
+Kernel-Config: CONFIG_AQUANTIA_PHY
+Hidden: 1
+Description:  Kernel modules for aQuantia Ethernet adapters.
+
+@@
+
+Package: kmod-atlantic
+Submenu: Network Devices
+Version: <LINUX_VERSION>+1.0-1
+Depends: @PCI_SUPPORT @TARGET_x86_64 +kmod-i2c-core +kmod-i2c-algo-bit +kmod-ptp +kmod-phy-aquantia
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: aQuantia AQtion(tm) Support
+Maintainer: 
+Source: 
+Type: ipkg
+Kernel-Config: CONFIG_AQTION
+Description:  Kernel modules for the aQuantia AQtion(tm) Ethernet card
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/bcm27xx-eeprom/Makefile
+
+Package: bcm27xx-eeprom
+Version: 47976e4409c6999a8e211976c75c60a97c90275c-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread bcm27xx-userland +blkid +pciutils +python3-light +coreutils +coreutils-od
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: utils
+Category: Utilities
+Repository: base
+Title: BCM27xx EEPROM tools
+Maintainer: Álvaro Fernández Rojas <noltari@gmail.com>
+Source: bcm27xx-eeprom-47976e4409c6999a8e211976c75c60a97c90275c.tar.gz
+License: BSD-3-Clause Custom
+LicenseFiles: LICENSE
+Type: ipkg
+Description:   BCM27xx EEPROM tools.
+Álvaro Fernández Rojas <noltari@gmail.com>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/cryptodev-linux/Makefile
+
+Package: kmod-cryptodev
+Submenu: Cryptographic API modules
+Version: <LINUX_VERSION>+1.12--1
+Depends: +kmod-crypto-authenc +kmod-crypto-hash
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: Driver for cryptographic acceleration
+Maintainer: Ansuel Smith <ansuelsmth@gmail.com>
+Source: cryptodev-linux-1.12.tar.gz
+License: GPL-2.0
+LicenseFiles: COPYING
+Type: ipkg
+Description:   This is a driver for that allows to use the Linux kernel supported
+  hardware ciphers by user-space applications.
+http://cryptodev-linux.org/
+Ansuel Smith <ansuelsmth@gmail.com>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/dsvpn/Makefile
+
+Package: dsvpn
+Submenu: VPN
+Version: 0.1.4-3b99d2ef6c02b2ef68b5784bec8adfdd55b29b1a-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +kmod-tun
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: A Dead Simple VPN
+Maintainer: 
+Source: dsvpn-0.1.4-3b99d2ef6c02b2ef68b5784bec8adfdd55b29b1a.tar.xz
+Type: ipkg
+Description: A Dead Simple VPN
+https://github.com/jedisct1/dsvpn
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/fast-classifier/Makefile
+
+Package: kmod-fast-classifier
+Submenu: Network Support
+Version: <LINUX_VERSION>-1
+Depends: +kmod-ipt-conntrack +kmod-shortcut-fe
+Conflicts: 
+Menu-Depends: 
+Provides: fast-classifier
+Section: kernel
+Category: Kernel modules
+Title: Kernel driver for FAST Classifier
+Maintainer: 
+Source: 
+Type: ipkg
+Kernel-Config: CONFIG_NF_CONNTRACK_CHAIN_EVENTS=y CONFIG_NF_CONNTRACK_MARK=y
+Description: FAST Classifier talks to SFE to make decisions about offloading connections
+
+@@
+
+Package: kmod-fast-classifier-noload
+Submenu: Network Support
+Version: <LINUX_VERSION>-1
+Depends: +kmod-ipt-conntrack +kmod-shortcut-fe
+Conflicts: 
+Menu-Depends: 
+Provides: fast-classifier
+Section: kernel
+Category: Kernel modules
+Title: Kernel driver for FAST Classifier
+Maintainer: 
+Source: 
+Type: ipkg
+Kernel-Config: CONFIG_NF_CONNTRACK_CHAIN_EVENTS=y CONFIG_NF_CONNTRACK_MARK=y
+Description: FAST Classifier talks to SFE to make decisions about offloading connections
+
+This package does not load fast-classifier at boot by default
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/glorytun/Makefile
+
+Package: glorytun
+Submenu: VPN
+Version: 0.0.35-6d58536f4232fea8eaa10fb60aace8ba11f29ed6-6
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +kmod-tun +libsodium +librt
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: Glorytun
+Maintainer: 
+Source: glorytun-.tar.gz
+Type: ipkg
+Description: Glorytun
+https://github.com/angt/glorytun
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/glorytun-udp/Makefile
+
+Package: glorytun-udp
+Submenu: VPN
+Version: 0.3.4-32267e86a6da05b285bb3bf2b136c105dc0af4bb-23
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +kmod-tun +libsodium +librt
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: Glorytun
+Maintainer: 
+Source: glorytun-udp-0.3.4-32267e86a6da05b285bb3bf2b136c105dc0af4bb.tar.xz
+Type: ipkg
+Description: Glorytun
+https://github.com/angt/glorytun
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/golang-protobuf/Makefile
+Build-Depends: golang/host
+
+Package: golang-protobuf-dev
+Submenu: Go
+Version: 20190109-347cf4a86c1cb8d262994d8ef5924d4576c5b331-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread @(aarch64||arm||i386||i686||mips||mips64||mips64el||mipsel||powerpc64||x86_64) +protobuf
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: lang
+Category: Languages
+Repository: base
+Title: Go support for Google protocol buffers
+Maintainer: 
+Source: golang-protobuf-20190109-347cf4a86c1cb8d262994d8ef5924d4576c5b331.tar.xz
+License: BSD-3-Clause
+LicenseFiles: LICENSE
+Type: ipkg
+Description: Go support for Google protocol buffers
+https://github.com/golang/protobuf
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/golang/golang/Makefile
+Build-Depends: golang/host
+Build-Types: host
+
+Package: golang
+Submenu: Go
+Version: 1.17.3-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread @(aarch64||arm||i386||i686||mips||mips64||mips64el||mipsel||powerpc64||x86_64) +golang-src
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: lang
+Category: Languages
+Repository: base
+Title: Go programming language (compiler)
+Maintainer: Jeffery To <jeffery.to@gmail.com>
+Source: go1.17.3.src.tar.gz
+License: BSD-3-Clause
+LicenseFiles: LICENSE
+Type: ipkg
+Description: The Go programming language is an open source project to make
+programmers more productive.
+
+Go is expressive, concise, clean, and efficient. Its concurrency
+mechanisms make it easy to write programs that get the most out of
+multicore and networked machines, while its novel type system enables
+flexible and modular program construction. Go compiles quickly to
+machine code yet has the convenience of garbage collection and the power
+of run-time reflection. It's a fast, statically typed, compiled language
+that feels like a dynamically typed, interpreted language.
+
+This package provides an assembler, compiler, linker, and compiled
+libraries for the Go programming language.
+https://golang.org/
+Jeffery To <jeffery.to@gmail.com>
+@@
+Config:
+  source "feeds/openmptcprouter/golang/golang/Config.in"
+@@
+
+Package: golang-doc
+Submenu: Go
+Version: 1.17.3-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread @(aarch64||arm||i386||i686||mips||mips64||mips64el||mipsel||powerpc64||x86_64)
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: lang
+Category: Languages
+Repository: base
+Title: Go programming language (documentation)
+Maintainer: Jeffery To <jeffery.to@gmail.com>
+Source: go1.17.3.src.tar.gz
+License: BSD-3-Clause
+LicenseFiles: LICENSE
+Type: ipkg
+Description: The Go programming language is an open source project to make
+programmers more productive.
+
+Go is expressive, concise, clean, and efficient. Its concurrency
+mechanisms make it easy to write programs that get the most out of
+multicore and networked machines, while its novel type system enables
+flexible and modular program construction. Go compiles quickly to
+machine code yet has the convenience of garbage collection and the power
+of run-time reflection. It's a fast, statically typed, compiled language
+that feels like a dynamically typed, interpreted language.
+
+This package provides the documentation for the Go programming language.
+https://golang.org/
+Jeffery To <jeffery.to@gmail.com>
+@@
+
+Package: golang-src
+Submenu: Go
+Version: 1.17.3-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread @(aarch64||arm||i386||i686||mips||mips64||mips64el||mipsel||powerpc64||x86_64)
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: lang
+Category: Languages
+Repository: base
+Title: Go programming language (source files)
+Maintainer: Jeffery To <jeffery.to@gmail.com>
+Source: go1.17.3.src.tar.gz
+License: BSD-3-Clause
+LicenseFiles: LICENSE
+Type: ipkg
+Description: The Go programming language is an open source project to make
+programmers more productive.
+
+Go is expressive, concise, clean, and efficient. Its concurrency
+mechanisms make it easy to write programs that get the most out of
+multicore and networked machines, while its novel type system enables
+flexible and modular program construction. Go compiles quickly to
+machine code yet has the convenience of garbage collection and the power
+of run-time reflection. It's a fast, statically typed, compiled language
+that feels like a dynamically typed, interpreted language.
+
+This package provides the Go programming language source files needed
+for cross-compilation.
+https://golang.org/
+Jeffery To <jeffery.to@gmail.com>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/golang/golang-golang-x-crypto/Makefile
+Build-Depends: golang/host
+
+Package: golang-golang-x-crypto-dev
+Submenu: Go
+Version: 20190701-4def268fd1a49955bfb3dda92fe3db4f924f2285-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread @(aarch64||arm||i386||i686||mips||mips64||mips64el||mipsel||powerpc64||x86_64) +golang-golang-x-net-dev +golang-golang-x-sys-dev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: lang
+Category: Languages
+Repository: base
+Title: Go supplementary cryptography libraries
+Maintainer: Jeffery To <jeffery.to@gmail.com>
+Source: golang-golang-x-crypto-20190701-4def268fd1a49955bfb3dda92fe3db4f924f2285.tar.xz
+License: BSD-3-Clause
+LicenseFiles: LICENSE
+Type: ipkg
+Description: Supplementary Go cryptography libraries.
+https://godoc.org/golang.org/x/crypto
+Jeffery To <jeffery.to@gmail.com>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/golang/golang-golang-x-net/Makefile
+Build-Depends: golang/host
+
+Package: golang-golang-x-net-dev
+Submenu: Go
+Version: 20180620-afe8f62b1d6bbd81f31868121a50b06d8188e1f9-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread @(aarch64||arm||i386||i686||mips||mips64||mips64el||mipsel||powerpc64||x86_64) +golang-golang-x-text-dev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: lang
+Category: Languages
+Repository: base
+Title: Go supplementary network libraries
+Maintainer: Jeffery To <jeffery.to@gmail.com>
+Source: golang-golang-x-net-20180620-afe8f62b1d6bbd81f31868121a50b06d8188e1f9.tar.xz
+License: BSD-3-Clause
+LicenseFiles: LICENSE
+Type: ipkg
+Description: Supplementary Go networking libraries.
+https://godoc.org/golang.org/x/net
+Jeffery To <jeffery.to@gmail.com>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/golang/golang-golang-x-sys/Makefile
+Build-Depends: golang/host
+
+Package: golang-golang-x-sys-dev
+Submenu: Go
+Version: 20180621-63fc586f45fe72d95d5240a5d5eb95e6503907d3-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread @(aarch64||arm||i386||i686||mips||mips64||mips64el||mipsel||powerpc64||x86_64)
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: lang
+Category: Languages
+Repository: base
+Title: Go packages for interaction with the OS
+Maintainer: Jeffery To <jeffery.to@gmail.com>
+Source: golang-golang-x-sys-20180621-63fc586f45fe72d95d5240a5d5eb95e6503907d3.tar.xz
+License: BSD-3-Clause
+LicenseFiles: LICENSE
+Type: ipkg
+Description: Supplementary Go packages for low-level interactions with the operating
+system.
+https://godoc.org/golang.org/x/sys
+Jeffery To <jeffery.to@gmail.com>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/golang/golang-golang-x-text/Makefile
+Build-Depends: golang/host
+
+Package: golang-golang-x-text-dev
+Submenu: Go
+Version: 20180520-5cec4b58c438bd98288aeb248bab2c1840713d21-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread @(aarch64||arm||i386||i686||mips||mips64||mips64el||mipsel||powerpc64||x86_64)
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: lang
+Category: Languages
+Repository: base
+Title: Go text processing support
+Maintainer: Jeffery To <jeffery.to@gmail.com>
+Source: golang-golang-x-text-20180520-5cec4b58c438bd98288aeb248bab2c1840713d21.tar.xz
+License: BSD-3-Clause
+LicenseFiles: LICENSE
+Type: ipkg
+Description: Supplementary Go libraries for text processing, many involving Unicode.
+https://godoc.org/golang.org/x/text
+Jeffery To <jeffery.to@gmail.com>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/https-dns-proxy/Makefile
+
+Package: https-dns-proxy
+Version: 2021-06-03-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libcares +libcurl +libev +ca-bundle
+Conflicts: https_dns_proxy
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: DNS Over HTTPS Proxy
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: https-dns-proxy-2021-06-03.tar.xz
+License: MIT
+LicenseFiles: LICENSE
+Type: ipkg
+Description: https-dns-proxy is a light-weight DNS<-->HTTPS, non-caching translation proxy for the RFC 8484 DoH standard.
+It receives regular (UDP) DNS requests and issues them via DoH.
+Please see https://docs.openwrt.melmac.net/https-dns-proxy/ for more information.
+https://docs.openwrt.melmac.net/https-dns-proxy/
+Stan Grishin <stangri@melmac.net>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/ipcalc/Makefile
+
+Package: ipcalc
+Version: e9f88461f2585575d12fc95f5eeb9996b863f5af-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: Modern tool to assist in network address calculations for IPv4 and IPv6.
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: ipcalc-e9f88461f2585575d12fc95f5eeb9996b863f5af.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: Modern tool to assist in network address calculations for IPv4 and IPv6.
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/iperf3/Makefile
+
+Package: iperf3
+Version: 3.10.1-10
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: nossl
+Section: net
+Category: Network
+Repository: base
+Title: Internet Protocol bandwidth measuring tool
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Source: iperf-3.10.1.tar.gz
+License: BSD-3-Clause
+Type: ipkg
+Description:  Iperf is a modern alternative for measuring TCP and UDP bandwidth
+ performance, allowing the tuning of various parameters and
+ characteristics.
+https://github.com/esnet/iperf
+Felix Fietkau <nbd@nbd.name>
+@@
+
+Package: iperf3-ssl
+Version: 3.10.1-10
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libopenssl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ssl
+Section: net
+Category: Network
+Repository: base
+Title: Internet Protocol bandwidth measuring tool with iperf_auth support
+Maintainer: Felix Fietkau <nbd@nbd.name>
+Source: iperf-3.10.1.tar.gz
+License: BSD-3-Clause
+Type: ipkg
+Description: Internet Protocol bandwidth measuring tool with iperf_auth support
+https://github.com/esnet/iperf
+Felix Fietkau <nbd@nbd.name>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/lcd4linux/Makefile
+Build-Depends:  !BUILD_NLS:libiconv !BUILD_NLS:gettext
+
+Package: lcd4linux-custom
+Menu: 1
+Version: rf13470faf00e52d1458f2a88d498716240edc272-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +LCD4LINUX_CUSTOM_NEEDS_libdbus:libdbus +LCD4LINUX_CUSTOM_NEEDS_libgd:libgd +LCD4LINUX_CUSTOM_NEEDS_libjpeg:libjpeg +LCD4LINUX_CUSTOM_NEEDS_libncurses:libncurses +LCD4LINUX_CUSTOM_NEEDS_libsqlite3:libsqlite3 +LCD4LINUX_CUSTOM_NEEDS_libusb:libusb-compat
+Conflicts: 
+Menu-Depends: 
+Provides: lcd4linux
+Build-Variant: custom
+Section: utils
+Category: Utilities
+Repository: base
+Title: LCD display utility
+Maintainer: 
+Source: lcd4linux-rf13470faf00e52d1458f2a88d498716240edc272.tar.bz2
+Type: ipkg
+Description:  LCD4Linux is a small program that grabs information from the kernel and
+ some subsystems and displays it on an external liquid crystal display.
+ .
+ This package contains a customized version of LCD4Linux.
+http://lcd4linux.bulix.org/
+
+@@
+Config:
+	source "feeds/openmptcprouter/lcd4linux/Config.in"
+@@
+
+Package: lcd4linux-full
+Version: rf13470faf00e52d1458f2a88d498716240edc272-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libdbus +libgd +libncurses +libsqlite3 +libusb-compat +serdisplib
+Conflicts: 
+Menu-Depends: 
+Provides: lcd4linux
+Build-Variant: full
+Section: utils
+Category: Utilities
+Repository: base
+Title: LCD display utility
+Maintainer: Jonathan McCrohan <jmccrohan@gmail.com>
+Source: lcd4linux-rf13470faf00e52d1458f2a88d498716240edc272.tar.bz2
+Type: ipkg
+Description:  LCD4Linux is a small program that grabs information from the kernel and
+ some subsystems and displays it on an external liquid crystal display.
+ .
+ This package contains a version of LCD4Linux built with all supported
+ drivers and plugins.
+http://lcd4linux.bulix.org/
+Jonathan McCrohan <jmccrohan@gmail.com>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/libell/Makefile
+
+Package: libell
+Version: 0.41-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Libraries
+Repository: base
+Title: Embedded Linux library
+Maintainer: Ycarus <ycarus@zugaina.org>
+Source: ell-0.41.tar.xz
+License: GPL-2.0
+LicenseFiles: GPL
+Type: ipkg
+Description:   Embeded Linux library
+https://git.kernel.org/pub/scm/libs/ell/ell.git
+Ycarus <ycarus@zugaina.org>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-dsvpn/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-dsvpn
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +dsvpn
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Interface to DSVPN
+Maintainer: OpenWrt LuCI community
+Source: 
+License: GPLv3
+Type: ipkg
+Description: LuCI Interface to DSVPN
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-dsvpn-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-dsvpn
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-dsvpn - fr translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-dsvpn - Français (French)
+
+@@
+
+Package: luci-i18n-dsvpn-ru
+Default: LUCI_LANG_ru||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-dsvpn
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-dsvpn - ru translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-dsvpn - Русский (Russian)
+
+@@
+
+Package: luci-i18n-dsvpn-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-dsvpn
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-dsvpn - zh-cn translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-dsvpn - 简体中文 (Chinese Simplified)
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-firewall/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-firewall
+Submenu: 3. Applications
+Version: omr-202103
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: Firewall and Portforwarding application
+Maintainer: OpenWrt LuCI community
+Source: 
+License: Apache-2.0
+Type: ipkg
+Description: Firewall and Portforwarding application
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-firewall-bg
+Default: LUCI_LANG_bg||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - bg translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - български (Bulgarian)
+
+@@
+
+Package: luci-i18n-firewall-ca
+Default: LUCI_LANG_ca||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - ca translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Català (Catalan)
+
+@@
+
+Package: luci-i18n-firewall-cs
+Default: LUCI_LANG_cs||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - cs translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Čeština (Czech)
+
+@@
+
+Package: luci-i18n-firewall-de
+Default: LUCI_LANG_de||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - de translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Deutsch (German)
+
+@@
+
+Package: luci-i18n-firewall-el
+Default: LUCI_LANG_el||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - el translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Ελληνικά (Greek)
+
+@@
+
+Package: luci-i18n-firewall-en
+Default: LUCI_LANG_en||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - en translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - English
+
+@@
+
+Package: luci-i18n-firewall-es
+Default: LUCI_LANG_es||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - es translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Español (Spanish)
+
+@@
+
+Package: luci-i18n-firewall-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - fr translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Français (French)
+
+@@
+
+Package: luci-i18n-firewall-he
+Default: LUCI_LANG_he||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - he translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - עִבְרִית (Hebrew)
+
+@@
+
+Package: luci-i18n-firewall-hi
+Default: LUCI_LANG_hi||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - hi translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - हिंदी (Hindi)
+
+@@
+
+Package: luci-i18n-firewall-hu
+Default: LUCI_LANG_hu||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - hu translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Magyar (Hungarian)
+
+@@
+
+Package: luci-i18n-firewall-it
+Default: LUCI_LANG_it||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - it translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Italiano (Italian)
+
+@@
+
+Package: luci-i18n-firewall-ja
+Default: LUCI_LANG_ja||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - ja translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - 日本語 (Japanese)
+
+@@
+
+Package: luci-i18n-firewall-ko
+Default: LUCI_LANG_ko||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - ko translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - 한국어 (Korean)
+
+@@
+
+Package: luci-i18n-firewall-mr
+Default: LUCI_LANG_mr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - mr translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Marāṭhī (Marathi)
+
+@@
+
+Package: luci-i18n-firewall-ms
+Default: LUCI_LANG_ms||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - ms translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Bahasa Melayu (Malay)
+
+@@
+
+Package: luci-i18n-firewall-no
+Default: LUCI_LANG_nb_NO||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - no translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Norsk (Norwegian)
+
+@@
+
+Package: luci-i18n-firewall-pl
+Default: LUCI_LANG_pl||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - pl translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Polski (Polish)
+
+@@
+
+Package: luci-i18n-firewall-pt
+Default: LUCI_LANG_pt||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - pt translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Português (Portuguese)
+
+@@
+
+Package: luci-i18n-firewall-pt-br
+Default: LUCI_LANG_pt_BR||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - pt-br translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Português do Brasil (Brazilian Portuguese)
+
+@@
+
+Package: luci-i18n-firewall-ro
+Default: LUCI_LANG_ro||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - ro translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Română (Romanian)
+
+@@
+
+Package: luci-i18n-firewall-ru
+Default: LUCI_LANG_ru||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - ru translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Русский (Russian)
+
+@@
+
+Package: luci-i18n-firewall-sk
+Default: LUCI_LANG_sk||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - sk translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Slovenčina (Slovak)
+
+@@
+
+Package: luci-i18n-firewall-sv
+Default: LUCI_LANG_sv||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - sv translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Svenska (Swedish)
+
+@@
+
+Package: luci-i18n-firewall-tr
+Default: LUCI_LANG_tr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - tr translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Türkçe (Turkish)
+
+@@
+
+Package: luci-i18n-firewall-uk
+Default: LUCI_LANG_uk||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - uk translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Українська (Ukrainian)
+
+@@
+
+Package: luci-i18n-firewall-vi
+Default: LUCI_LANG_vi||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - vi translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - Tiếng Việt (Vietnamese)
+
+@@
+
+Package: luci-i18n-firewall-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - zh-cn translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - 简体中文 (Chinese Simplified)
+
+@@
+
+Package: luci-i18n-firewall-zh-tw
+Default: LUCI_LANG_zh_Hant||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-firewall
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-firewall - zh-tw translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-firewall - 繁體中文 (Chinese Traditional)
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-glorytun-tcp/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-glorytun-tcp
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +glorytun
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Interface to Glorytun TCP
+Maintainer: OpenWrt LuCI community
+Source: 
+License: GPLv3
+Type: ipkg
+Description: LuCI Interface to Glorytun TCP
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-glorytun-tcp-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-glorytun-tcp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-glorytun-tcp - fr translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-glorytun-tcp - Français (French)
+
+@@
+
+Package: luci-i18n-glorytun-tcp-ru
+Default: LUCI_LANG_ru||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-glorytun-tcp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-glorytun-tcp - ru translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-glorytun-tcp - Русский (Russian)
+
+@@
+
+Package: luci-i18n-glorytun-tcp-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-glorytun-tcp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-glorytun-tcp - zh-cn translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-glorytun-tcp - 简体中文 (Chinese Simplified)
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-glorytun-udp/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-glorytun-udp
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +glorytun-udp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Interface to Glorytun UDP
+Maintainer: OpenWrt LuCI community
+Source: 
+License: GPLv3
+Type: ipkg
+Description: LuCI Interface to Glorytun UDP
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-glorytun-udp-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-glorytun-udp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-glorytun-udp - fr translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-glorytun-udp - Français (French)
+
+@@
+
+Package: luci-i18n-glorytun-udp-ru
+Default: LUCI_LANG_ru||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-glorytun-udp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-glorytun-udp - ru translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-glorytun-udp - Русский (Russian)
+
+@@
+
+Package: luci-i18n-glorytun-udp-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-glorytun-udp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-glorytun-udp - zh-cn translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-glorytun-udp - 简体中文 (Chinese Simplified)
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-haproxy-tcp/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-haproxy-tcp
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +haproxy-nossl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Support for haproxy-tcp
+Maintainer: OpenWrt LuCI community
+Source: 
+License: MIT
+Type: ipkg
+Description: LuCI Support for haproxy-tcp
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-haproxy-tcp-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-haproxy-tcp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-haproxy-tcp - fr translation
+Maintainer: 
+Source: 
+License: MIT
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-haproxy-tcp - Français (French)
+
+@@
+
+Package: luci-i18n-haproxy-tcp-zh-cn
+Default: LUCI_LANG_zh-cn||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-haproxy-tcp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-haproxy-tcp - zh-cn translation
+Maintainer: 
+Source: 
+License: MIT
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-haproxy-tcp - 
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-https-dns-proxy/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-https-dns-proxy
+Submenu: 3. Applications
+Version: omr-202103
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +luci-compat +luci-mod-admin-full +https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: DNS Over HTTPS Proxy Web UI
+Maintainer: OpenWrt LuCI community
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Description:    Provides Web UI for DNS Over HTTPS Proxy
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-https-dns-proxy-bg
+Default: LUCI_LANG_bg||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - bg translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - български (Bulgarian)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-ca
+Default: LUCI_LANG_ca||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - ca translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Català (Catalan)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-cs
+Default: LUCI_LANG_cs||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - cs translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Čeština (Czech)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-de
+Default: LUCI_LANG_de||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - de translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Deutsch (German)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-el
+Default: LUCI_LANG_el||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - el translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Ελληνικά (Greek)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-en
+Default: LUCI_LANG_en||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - en translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - English
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-es
+Default: LUCI_LANG_es||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - es translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Español (Spanish)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - fr translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Français (French)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-he
+Default: LUCI_LANG_he||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - he translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - עִבְרִית (Hebrew)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-hi
+Default: LUCI_LANG_hi||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - hi translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - हिंदी (Hindi)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-hu
+Default: LUCI_LANG_hu||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - hu translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Magyar (Hungarian)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-it
+Default: LUCI_LANG_it||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - it translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Italiano (Italian)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-ja
+Default: LUCI_LANG_ja||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - ja translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - 日本語 (Japanese)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-ko
+Default: LUCI_LANG_ko||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - ko translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - 한국어 (Korean)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-mr
+Default: LUCI_LANG_mr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - mr translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Marāṭhī (Marathi)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-ms
+Default: LUCI_LANG_ms||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - ms translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Bahasa Melayu (Malay)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-no
+Default: LUCI_LANG_nb_NO||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - no translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Norsk (Norwegian)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-pl
+Default: LUCI_LANG_pl||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - pl translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Polski (Polish)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-pt
+Default: LUCI_LANG_pt||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - pt translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Português (Portuguese)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-pt-br
+Default: LUCI_LANG_pt_BR||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - pt-br translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Português do Brasil (Brazilian Portuguese)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-ro
+Default: LUCI_LANG_ro||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - ro translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Română (Romanian)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-ru
+Default: LUCI_LANG_ru||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - ru translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Русский (Russian)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-sk
+Default: LUCI_LANG_sk||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - sk translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Slovenčina (Slovak)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-sv
+Default: LUCI_LANG_sv||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - sv translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Svenska (Swedish)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-tr
+Default: LUCI_LANG_tr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - tr translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Türkçe (Turkish)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-uk
+Default: LUCI_LANG_uk||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - uk translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Українська (Ukrainian)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-vi
+Default: LUCI_LANG_vi||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - vi translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - Tiếng Việt (Vietnamese)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - zh-cn translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - 简体中文 (Chinese Simplified)
+Stan Grishin <stangri@melmac.net>
+@@
+
+Package: luci-i18n-https-dns-proxy-zh-tw
+Default: LUCI_LANG_zh_Hant||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-https-dns-proxy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-https-dns-proxy - zh-tw translation
+Maintainer: Stan Grishin <stangri@melmac.net>
+Source: 
+License: GPL-3.0-or-later
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-https-dns-proxy - 繁體中文 (Chinese Traditional)
+Stan Grishin <stangri@melmac.net>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-iperf/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-iperf
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +iperf3-ssl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Support for iPerf3
+Maintainer: OpenWrt LuCI community
+Source: 
+License: GPLv3
+Type: ipkg
+Description: LuCI Support for iPerf3
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-iperf-de
+Default: LUCI_LANG_de||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-iperf
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-iperf - de translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-iperf - Deutsch (German)
+
+@@
+
+Package: luci-i18n-iperf-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-iperf
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-iperf - fr translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-iperf - Français (French)
+
+@@
+
+Package: luci-i18n-iperf-it
+Default: LUCI_LANG_it||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-iperf
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-iperf - it translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-iperf - Italiano (Italian)
+
+@@
+
+Package: luci-i18n-iperf-oc
+Default: LUCI_LANG_oc||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-iperf
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-iperf - oc translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-iperf - 
+
+@@
+
+Package: luci-i18n-iperf-ru
+Default: LUCI_LANG_ru||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-iperf
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-iperf - ru translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-iperf - Русский (Russian)
+
+@@
+
+Package: luci-i18n-iperf-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-iperf
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-iperf - zh-cn translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-iperf - 简体中文 (Chinese Simplified)
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-mail/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-mail
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +msmtp-mta
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Mail Configuration
+Maintainer: OpenWrt LuCI community
+Source: 
+License: GPLv3
+Type: ipkg
+Description: LuCI Mail Configuration
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-mail-de
+Default: LUCI_LANG_de||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mail
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mail - de translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mail - Deutsch (German)
+
+@@
+
+Package: luci-i18n-mail-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mail
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mail - fr translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mail - Français (French)
+
+@@
+
+Package: luci-i18n-mail-it
+Default: LUCI_LANG_it||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mail
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mail - it translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mail - Italiano (Italian)
+
+@@
+
+Package: luci-i18n-mail-oc
+Default: LUCI_LANG_oc||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mail
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mail - oc translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mail - 
+
+@@
+
+Package: luci-i18n-mail-ru
+Default: LUCI_LANG_ru||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mail
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mail - ru translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mail - Русский (Russian)
+
+@@
+
+Package: luci-i18n-mail-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mail
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mail - zh-cn translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mail - 简体中文 (Chinese Simplified)
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-mlvpn/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-mlvpn
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +glorytun
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Interface to Glorytun TCP
+Maintainer: OpenWrt LuCI community
+Source: 
+License: GPLv3
+Type: ipkg
+Description: LuCI Interface to Glorytun TCP
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-mlvpn-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mlvpn
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mlvpn - fr translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mlvpn - Français (French)
+
+@@
+
+Package: luci-i18n-mlvpn-ru
+Default: LUCI_LANG_ru||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mlvpn
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mlvpn - ru translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mlvpn - Русский (Russian)
+
+@@
+
+Package: luci-i18n-mlvpn-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mlvpn
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mlvpn - zh-cn translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mlvpn - 简体中文 (Chinese Simplified)
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-mptcp/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-mptcp
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Support for MPTCP
+Maintainer: OpenWrt LuCI community
+Source: 
+License: GPLv3
+Type: ipkg
+Description: LuCI Support for MPTCP
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-mptcp-de
+Default: LUCI_LANG_de||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mptcp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mptcp - de translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mptcp - Deutsch (German)
+
+@@
+
+Package: luci-i18n-mptcp-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mptcp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mptcp - fr translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mptcp - Français (French)
+
+@@
+
+Package: luci-i18n-mptcp-it
+Default: LUCI_LANG_it||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mptcp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mptcp - it translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mptcp - Italiano (Italian)
+
+@@
+
+Package: luci-i18n-mptcp-oc
+Default: LUCI_LANG_oc||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mptcp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mptcp - oc translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mptcp - 
+
+@@
+
+Package: luci-i18n-mptcp-ru
+Default: LUCI_LANG_ru||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mptcp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mptcp - ru translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mptcp - Русский (Russian)
+
+@@
+
+Package: luci-i18n-mptcp-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-mptcp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-mptcp - zh-cn translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-mptcp - 简体中文 (Chinese Simplified)
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-nginx-ha/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-nginx-ha
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +nginx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Support for nginx load balancing
+Maintainer: OpenWrt LuCI community
+Source: 
+License: MIT
+Type: ipkg
+Description: LuCI Support for nginx load balancing
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-nginx-ha-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-nginx-ha
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-nginx-ha - fr translation
+Maintainer: 
+Source: 
+License: MIT
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-nginx-ha - Français (French)
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-omr-bypass/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-omr-bypass
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +dnsmasq-full +shadowsocks-libev-ss-rules +iptables-mod-ndpi +iptables-mod-extra +kmod-ipt-ndpi +iptables
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Interface to bypass domains
+Maintainer: OpenWrt LuCI community
+Source: 
+License: GPLv3
+Type: ipkg
+Description: LuCI Interface to bypass domains
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-omr-bypass-de
+Default: LUCI_LANG_de||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-bypass
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-bypass - de translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-bypass - Deutsch (German)
+
+@@
+
+Package: luci-i18n-omr-bypass-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-bypass
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-bypass - fr translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-bypass - Français (French)
+
+@@
+
+Package: luci-i18n-omr-bypass-it
+Default: LUCI_LANG_it||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-bypass
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-bypass - it translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-bypass - Italiano (Italian)
+
+@@
+
+Package: luci-i18n-omr-bypass-oc
+Default: LUCI_LANG_oc||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-bypass
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-bypass - oc translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-bypass - 
+
+@@
+
+Package: luci-i18n-omr-bypass-ru
+Default: LUCI_LANG_ru||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-bypass
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-bypass - ru translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-bypass - Русский (Russian)
+
+@@
+
+Package: luci-i18n-omr-bypass-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-bypass
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-bypass - zh-cn translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-bypass - 简体中文 (Chinese Simplified)
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-omr-dscp/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-omr-dscp
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Interface to DSCP
+Maintainer: OpenWrt LuCI community
+Source: 
+License: GPLv3
+Type: ipkg
+Description: LuCI Interface to DSCP
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-omr-dscp-de
+Default: LUCI_LANG_de||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-dscp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-dscp - de translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-dscp - Deutsch (German)
+
+@@
+
+Package: luci-i18n-omr-dscp-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-dscp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-dscp - fr translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-dscp - Français (French)
+
+@@
+
+Package: luci-i18n-omr-dscp-it
+Default: LUCI_LANG_it||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-dscp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-dscp - it translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-dscp - Italiano (Italian)
+
+@@
+
+Package: luci-i18n-omr-dscp-oc
+Default: LUCI_LANG_oc||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-dscp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-dscp - oc translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-dscp - 
+
+@@
+
+Package: luci-i18n-omr-dscp-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-dscp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-dscp - zh-cn translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-dscp - 简体中文 (Chinese Simplified)
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-omr-quota/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-omr-quota
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +omr-quota
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: Quota configuration module
+Maintainer: OpenWrt LuCI community
+Source: 
+License: GPLv3
+Type: ipkg
+Description: Quota configuration module
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-omr-quota-de
+Default: LUCI_LANG_de||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-quota
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-quota - de translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-quota - Deutsch (German)
+
+@@
+
+Package: luci-i18n-omr-quota-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-quota
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-quota - fr translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-quota - Français (French)
+
+@@
+
+Package: luci-i18n-omr-quota-it
+Default: LUCI_LANG_it||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-quota
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-quota - it translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-quota - Italiano (Italian)
+
+@@
+
+Package: luci-i18n-omr-quota-oc
+Default: LUCI_LANG_oc||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-quota
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-quota - oc translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-quota - 
+
+@@
+
+Package: luci-i18n-omr-quota-ru
+Default: LUCI_LANG_ru||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-quota
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-quota - ru translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-quota - Русский (Russian)
+
+@@
+
+Package: luci-i18n-omr-quota-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-quota
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-quota - zh-cn translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-quota - 简体中文 (Chinese Simplified)
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-omr-tracker/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-omr-tracker
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +omr-tracker
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Support for omr-tracker
+Maintainer: OpenWrt LuCI community
+Source: 
+License: GPLv3
+Type: ipkg
+Description: LuCI Support for omr-tracker
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-omr-tracker-de
+Default: LUCI_LANG_de||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-tracker
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-tracker - de translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-tracker - Deutsch (German)
+
+@@
+
+Package: luci-i18n-omr-tracker-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-tracker
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-tracker - fr translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-tracker - Français (French)
+
+@@
+
+Package: luci-i18n-omr-tracker-it
+Default: LUCI_LANG_it||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-tracker
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-tracker - it translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-tracker - Italiano (Italian)
+
+@@
+
+Package: luci-i18n-omr-tracker-oc
+Default: LUCI_LANG_oc||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-tracker
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-tracker - oc translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-tracker - 
+
+@@
+
+Package: luci-i18n-omr-tracker-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-omr-tracker
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-omr-tracker - zh-cn translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-omr-tracker - 简体中文 (Chinese Simplified)
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-openmptcprouter/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-openmptcprouter
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +luci-lib-json +rdisc6 +curl +bind-dig +tracebox
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Support for OpenMPTCProuter
+Maintainer: OpenWrt LuCI community
+Source: 
+License: GPLv3
+Type: ipkg
+Description: LuCI Support for OpenMPTCProuter
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-openmptcprouter-de
+Default: LUCI_LANG_de||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-openmptcprouter
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-openmptcprouter - de translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-openmptcprouter - Deutsch (German)
+
+@@
+
+Package: luci-i18n-openmptcprouter-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-openmptcprouter
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-openmptcprouter - fr translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-openmptcprouter - Français (French)
+
+@@
+
+Package: luci-i18n-openmptcprouter-it
+Default: LUCI_LANG_it||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-openmptcprouter
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-openmptcprouter - it translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-openmptcprouter - Italiano (Italian)
+
+@@
+
+Package: luci-i18n-openmptcprouter-oc
+Default: LUCI_LANG_oc||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-openmptcprouter
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-openmptcprouter - oc translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-openmptcprouter - 
+
+@@
+
+Package: luci-i18n-openmptcprouter-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-openmptcprouter
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-openmptcprouter - zh-cn translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-openmptcprouter - 简体中文 (Chinese Simplified)
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-packet-capture/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-packet-capture
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +luci-mod-admin-full +tcpdump +uhttpd-mod-ubus +coreutils +coreutils-timeout
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: Packet capture application
+Maintainer: OpenWrt LuCI community
+Source: 
+License: Apache-2.0
+Type: ipkg
+Description: Packet capture application
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-packet-capture-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-packet-capture
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-packet-capture - fr translation
+Maintainer: Wojciech Jowsa <wojciech.jowsa@gmail.com>
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-packet-capture - Français (French)
+Wojciech Jowsa <wojciech.jowsa@gmail.com>
+@@
+
+Package: luci-i18n-packet-capture-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-packet-capture
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-packet-capture - zh-cn translation
+Maintainer: Wojciech Jowsa <wojciech.jowsa@gmail.com>
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-packet-capture - 简体中文 (Chinese Simplified)
+Wojciech Jowsa <wojciech.jowsa@gmail.com>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-shadowsocks-libev/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-shadowsocks-libev
+Submenu: 3. Applications
+Version: omr-202103
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +luci-compat
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Support for shadowsocks-libev
+Maintainer: OpenWrt LuCI community
+Source: 
+License: Apache-2.0
+Type: ipkg
+Description: LuCI Support for shadowsocks-libev
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-shadowsocks-libev-bg
+Default: LUCI_LANG_bg||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - bg translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - български (Bulgarian)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-ca
+Default: LUCI_LANG_ca||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - ca translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Català (Catalan)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-cs
+Default: LUCI_LANG_cs||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - cs translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Čeština (Czech)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-de
+Default: LUCI_LANG_de||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - de translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Deutsch (German)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-el
+Default: LUCI_LANG_el||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - el translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Ελληνικά (Greek)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-en
+Default: LUCI_LANG_en||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - en translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - English
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-es
+Default: LUCI_LANG_es||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - es translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Español (Spanish)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - fr translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Français (French)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-he
+Default: LUCI_LANG_he||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - he translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - עִבְרִית (Hebrew)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-hi
+Default: LUCI_LANG_hi||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - hi translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - हिंदी (Hindi)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-hu
+Default: LUCI_LANG_hu||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - hu translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Magyar (Hungarian)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-it
+Default: LUCI_LANG_it||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - it translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Italiano (Italian)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-ja
+Default: LUCI_LANG_ja||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - ja translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - 日本語 (Japanese)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-ko
+Default: LUCI_LANG_ko||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - ko translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - 한국어 (Korean)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-ms
+Default: LUCI_LANG_ms||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - ms translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Bahasa Melayu (Malay)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-no
+Default: LUCI_LANG_nb_NO||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - no translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Norsk (Norwegian)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-pl
+Default: LUCI_LANG_pl||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - pl translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Polski (Polish)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-pt
+Default: LUCI_LANG_pt||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - pt translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Português (Portuguese)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-pt-br
+Default: LUCI_LANG_pt_BR||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - pt-br translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Português do Brasil (Brazilian Portuguese)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-ro
+Default: LUCI_LANG_ro||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - ro translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Română (Romanian)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-ru
+Default: LUCI_LANG_ru||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - ru translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Русский (Russian)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-sk
+Default: LUCI_LANG_sk||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - sk translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Slovenčina (Slovak)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-sv
+Default: LUCI_LANG_sv||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - sv translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Svenska (Swedish)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-tr
+Default: LUCI_LANG_tr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - tr translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Türkçe (Turkish)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-uk
+Default: LUCI_LANG_uk||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - uk translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Українська (Ukrainian)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-vi
+Default: LUCI_LANG_vi||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - vi translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - Tiếng Việt (Vietnamese)
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-zh-cn
+Default: LUCI_LANG_zh-cn||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - zh-cn translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - 
+
+@@
+
+Package: luci-i18n-shadowsocks-libev-zh-tw
+Default: LUCI_LANG_zh-tw||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shadowsocks-libev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shadowsocks-libev - zh-tw translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shadowsocks-libev - 
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-shutdown/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-shutdown
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Shutdown device app
+Maintainer: OpenWrt LuCI community
+Source: 
+License: GPLv3
+Type: ipkg
+Description: LuCI Shutdown device app
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-shutdown-de
+Default: LUCI_LANG_de||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shutdown
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shutdown - de translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shutdown - Deutsch (German)
+
+@@
+
+Package: luci-i18n-shutdown-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shutdown
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shutdown - fr translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shutdown - Français (French)
+
+@@
+
+Package: luci-i18n-shutdown-it
+Default: LUCI_LANG_it||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shutdown
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shutdown - it translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shutdown - Italiano (Italian)
+
+@@
+
+Package: luci-i18n-shutdown-oc
+Default: LUCI_LANG_oc||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shutdown
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shutdown - oc translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shutdown - 
+
+@@
+
+Package: luci-i18n-shutdown-pl
+Default: LUCI_LANG_pl||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shutdown
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shutdown - pl translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shutdown - Polski (Polish)
+
+@@
+
+Package: luci-i18n-shutdown-ru
+Default: LUCI_LANG_ru||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shutdown
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shutdown - ru translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shutdown - Русский (Russian)
+
+@@
+
+Package: luci-i18n-shutdown-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-shutdown
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-shutdown - zh-cn translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-shutdown - 简体中文 (Chinese Simplified)
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-snmpd/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-snmpd
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +snmpd +snmptrapd +snmp-utils +snmp-mibs
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI SNMPD Interface
+Maintainer: OpenWrt LuCI community
+Source: 
+License: GPLv3
+Type: ipkg
+Description: LuCI SNMPD Interface
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-snmpd-de
+Default: LUCI_LANG_de||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-snmpd
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-snmpd - de translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-snmpd - Deutsch (German)
+
+@@
+
+Package: luci-i18n-snmpd-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-snmpd
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-snmpd - fr translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-snmpd - Français (French)
+
+@@
+
+Package: luci-i18n-snmpd-it
+Default: LUCI_LANG_it||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-snmpd
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-snmpd - it translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-snmpd - Italiano (Italian)
+
+@@
+
+Package: luci-i18n-snmpd-oc
+Default: LUCI_LANG_oc||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-snmpd
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-snmpd - oc translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-snmpd - 
+
+@@
+
+Package: luci-i18n-snmpd-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-snmpd
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-snmpd - zh-cn translation
+Maintainer: 
+Source: 
+License: GPLv3
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-snmpd - 简体中文 (Chinese Simplified)
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-app-sysupgrade/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-sysupgrade
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +luci-base +uhttpd-mod-ubus +rpcd +rpcd-mod-rpcsys +cgi-io
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI support for sysupgrades
+Maintainer: OpenWrt LuCI community
+Source: 
+Type: ipkg
+Description: LuCI support for sysupgrades
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-sysupgrade-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-sysupgrade
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-sysupgrade - fr translation
+Maintainer: 
+Source: 
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-sysupgrade - Français (French)
+
+@@
+
+Package: luci-i18n-sysupgrade-ru
+Default: LUCI_LANG_ru||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-sysupgrade
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-sysupgrade - ru translation
+Maintainer: 
+Source: 
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-sysupgrade - Русский (Russian)
+
+@@
+
+Package: luci-i18n-sysupgrade-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-sysupgrade
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-sysupgrade - zh-cn translation
+Maintainer: 
+Source: 
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-sysupgrade - 简体中文 (Chinese Simplified)
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-mod-dashboard/Makefile
+Build-Depends: iwinfo lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-mod-dashboard
+Submenu: 2. Modules
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +luci-base +libiwinfo
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Dashboard Pages
+Maintainer: OpenWrt LuCI community
+Source: 
+License: Apache-2.0
+Type: ipkg
+Description: LuCI Dashboard Pages
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-dashboard-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-mod-dashboard
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-mod-dashboard - fr translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-mod-dashboard - Français (French)
+
+@@
+
+Package: luci-i18n-dashboard-ru
+Default: LUCI_LANG_ru||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-mod-dashboard
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-mod-dashboard - ru translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-mod-dashboard - Русский (Russian)
+
+@@
+
+Package: luci-i18n-dashboard-zh-cn
+Default: LUCI_LANG_zh_Hans||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-mod-dashboard
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-mod-dashboard - zh-cn translation
+Maintainer: 
+Source: 
+License: Apache-2.0
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-mod-dashboard - 简体中文 (Chinese Simplified)
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-mod-network/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-mod-network
+Submenu: 2. Modules
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +luci-base +libiwinfo-lua +rpcd-mod-iwinfo
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Network Administration
+Maintainer: OpenWrt LuCI community
+Source: 
+License: Apache-2.0
+Type: ipkg
+Description: LuCI Network Administration
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-proto-mbim/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-proto-mbim
+Submenu: 5. Protocols
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +umbim
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: Support for MBIM
+Maintainer: OpenWrt LuCI community
+Source: 
+Type: ipkg
+Description: Support for MBIM
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-theme-argon/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-theme-argon
+Submenu: 4. Themes
+Version: 2.2.6
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: Argon Theme
+Maintainer: OpenWrt LuCI community
+Source: 
+Type: ipkg
+Description: Argon Theme
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-theme-openmptcprouter/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-theme-openmptcprouter
+Submenu: 4. Themes
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: OpenMPTCProuter Theme (default)
+Maintainer: OpenWrt LuCI community
+Source: 
+Type: ipkg
+Description: OpenMPTCProuter Theme (default)
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/luci-theme-openwrt-2020/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-theme-openwrt-2020
+Submenu: 4. Themes
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI modern OpenWrt theme
+Maintainer: OpenWrt LuCI community
+Source: 
+Type: ipkg
+Description: LuCI modern OpenWrt theme
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/macvlan/Makefile
+
+Package: macvlan
+Version: 1-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +kmod-macvlan
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: MacVLAN configuration scripts
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: 
+Type: ipkg
+Description:   MacVLAN configuration for OpenMPTCProuter.
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/mlvpn/Makefile
+
+Package: mlvpn
+Menu: 1
+Submenu: VPN
+Version: 8aa1b16-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +kmod-tun +libev +libpcap +libsodium
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: Multi-Link Virtual Public Network
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: mlvpn-8aa1b16.tar.xz
+License: BSD-2-Clause
+Type: ipkg
+Description:   Multi-Link Virtual Public Network
+  Bond your internet links to increase bandwidth (unlimited).
+  Secure your internet connection by actively monitoring your links and removing the faulty ones, without loosing your TCP connections.
+  Secure your internet connection to the aggregation server using strong cryptography.
+  Scriptable automation and monitoring.
+https://zehome.github.io/MLVPN/
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/mptcp/Makefile
+
+Package: mptcp
+Version: 6.1-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +ip +iptables +ethtool +ipcalc
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: Multipath TCP configuration scripts
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: 
+Type: ipkg
+Kernel-Config: CONFIG_MPTCP=y CONFIG_MPTCP_IPV6=y CONFIG_MPTCP_BINDER=y CONFIG_MPTCP_FULLMESH=y CONFIG_MPTCP_NDIFFPORTS=y CONFIG_MPTCP_PM_ADVANCED=y CONFIG_MPTCP_REDUNDANT=y CONFIG_MPTCP_ECF=y CONFIG_MPTCP_ROUNDROBIN=y CONFIG_MPTCP_SCHED_ADVANCED=y CONFIG_DEFAULT_FULLMESH=y CONFIG_DEFAULT_MPTCP_PM="fullmesh" CONFIG_DEFAULT_MPTCP_SCHED="default" CONFIG_DEFAULT_NDIFFPORTS=n CONFIG_DEFAULT_REDUNDANT=n CONFIG_DEFAULT_ROUNDROBIN=n CONFIG_DEFAULT_SCHEDULER=y CONFIG_DEFAULT_BINDER=n CONFIG_DEFAULT_DUMMY=n CONFIG_DEFAULT_OLIA=y CONFIG_DEFAULT_BALIA=n CONFIG_DEFAULT_LIA=n CONFIG_DEFAULT_WVEGAS=n CONFIG_DEFAULT_CUBIC=n CONFIG_DEFAULT_RENO=n CONFIG_DEFAULT_BBR=n CONFIG_TCP_CONG_BALIA=y CONFIG_TCP_CONG_LIA=y CONFIG_TCP_CONG_OLIA=y CONFIG_TCP_CONG_WVEGAS=y CONFIG_TCP_CONG_BBR=y CONFIG_DEFAULT_TCP_CONG="olia"
+Description:   MultiPath TCP (MPTCP) is an effort towards enabling the simultaneous use of
+  several IP-addresses/interfaces by a modification of TCP that presents a regular
+  TCP interface to applications, while in fact spreading data across several
+  subflows. Benefits of this include better resource utilization, better throughput
+  and smoother reaction to failures.
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/mptcpd/Makefile
+Build-Depends: !USE_GLIBC:argp-standalone
+
+Package: mptcpd
+Version: 0.7-0e7175adf721c95a3bd742be77cb85e0b47138cd-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libell
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: mptcpd
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: mptcpd-0.7-0e7175adf721c95a3bd742be77cb85e0b47138cd.tar.xz
+Type: ipkg
+Description: mptcpd
+https://github.com/intel/mptcpd
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/msmtp/Makefile
+Build-Depends: !BUILD_NLS:libiconv !BUILD_NLS:gettext
+
+Package: msmtp
+Version: 1.8.14-2
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +BUILD_NLS:libintl-full +libgnutls +ca-bundle
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: ssl
+Default-Variant: ssl
+Section: mail
+Category: Mail
+Repository: base
+Title: Simple sendmail SMTP forwarding (with SSL support)
+Maintainer: 
+Source: msmtp-1.8.14.tar.xz
+License: GPL-3.0-or-later
+LicenseFiles: COPYING
+Type: ipkg
+Description:  msmtp is an SMTP client. In the default mode, it transmits a mail to
+ an SMTP server (for example at a free mail provider) which does the
+ delivery. To use this program with your mail user agent (MUA), create
+ a configuration file with your mail account(s) and tell your MUA to
+ call msmtp instead of /usr/sbin/sendmail.
+ This package is built with SSL support.
+https://marlam.de/msmtp
+
+@@
+
+Package: msmtp-nossl
+Version: 1.8.14-2
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +BUILD_NLS:libintl-full
+Conflicts: 
+Menu-Depends: 
+Provides: msmtp
+Build-Variant: nossl
+Section: mail
+Category: Mail
+Repository: base
+Title: Simple sendmail SMTP forwarding (without SSL support)
+Maintainer: 
+Source: msmtp-1.8.14.tar.xz
+License: GPL-3.0-or-later
+LicenseFiles: COPYING
+Type: ipkg
+Description:  msmtp is an SMTP client. In the default mode, it transmits a mail to
+ an SMTP server (for example at a free mail provider) which does the
+ delivery. To use this program with your mail user agent (MUA), create
+ a configuration file with your mail account(s) and tell your MUA to
+ call msmtp instead of /usr/sbin/sendmail.
+ This package is built without SSL support.
+https://marlam.de/msmtp
+
+@@
+
+Package: msmtp-queue
+Version: 1.8.14-2
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +BUILD_NLS:libintl-full +bash +msmtp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: mail
+Category: Mail
+Repository: base
+Title: Simple sendmail SMTP forwarding (queue scripts)
+Maintainer: 
+Source: msmtp-1.8.14.tar.xz
+License: GPL-3.0-or-later
+LicenseFiles: COPYING
+Type: ipkg
+Description:  msmtp is an SMTP client. In the default mode, it transmits a mail to
+ an SMTP server (for example at a free mail provider) which does the
+ delivery. To use this program with your mail user agent (MUA), create
+ a configuration file with your mail account(s) and tell your MUA to
+ call msmtp instead of /usr/sbin/sendmail.
+ This package contains the msmtp queue scripts.
+https://marlam.de/msmtp
+
+@@
+
+Package: msmtp-mta
+Version: 1.8.14-2
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +BUILD_NLS:libintl-full +msmtp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: mail
+Category: Mail
+Repository: base
+Title: Simple sendmail SMTP forwarding (as MTA)
+Maintainer: 
+Source: msmtp-1.8.14.tar.xz
+License: GPL-3.0-or-later
+LicenseFiles: COPYING
+Type: ipkg
+Description:  msmtp is an SMTP client. In the default mode, it transmits a mail to
+ an SMTP server (for example at a free mail provider) which does the
+ delivery. To use this program with your mail user agent (MUA), create
+ a configuration file with your mail account(s) and tell your MUA to
+ call msmtp instead of /usr/sbin/sendmail.
+ This package add a link from sendmail to msmtp
+ and is built with SSL support.
+https://marlam.de/msmtp
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/ndisc6/Makefile
+
+Package: ndisc6
+Submenu: IPv6 discovery tools
+Version: 1.0.3-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libpthread +librt
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: ipv6
+Category: IPv6
+Repository: base
+Title: An ICMPv6 neighbour discovery tool
+Maintainer: 
+Source: ndisc6-1.0.3.tar.bz2
+Type: ipkg
+Description: An ICMPv6 neighbour discovery tools
+http://www.remlab.net/ndisc6/
+
+@@
+
+Package: rdisc6
+Submenu: IPv6 discovery tools
+Version: 1.0.3-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libpthread +librt
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: ipv6
+Category: IPv6
+Repository: base
+Title: An ICMPv6 router discovery tool
+Maintainer: 
+Source: ndisc6-1.0.3.tar.bz2
+Type: ipkg
+Description: An ICMPv6 router discovery tool
+http://www.remlab.net/ndisc6/
+
+@@
+
+Package: traceroute6
+Submenu: IPv6 discovery tools
+Version: 1.0.3-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libpthread +librt
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: ipv6
+Category: IPv6
+Repository: base
+Title: An IPv6-based traceroute implementation
+Maintainer: 
+Source: ndisc6-1.0.3.tar.bz2
+Type: ipkg
+Description: An IPv6-based traceroute implementation
+http://www.remlab.net/ndisc6/
+
+@@
+
+Package: rdnssd
+Submenu: IPv6 discovery tools
+Version: 1.0.3-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libpthread +librt
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: ipv6
+Category: IPv6
+Repository: base
+Title: DNS server discovery daemon
+Maintainer: 
+Source: ndisc6-1.0.3.tar.bz2
+Type: ipkg
+Description: A recursive DNS server discovery daemon gathering
+information through stateless IPv6 autoconfiguration (RFC5006)
+http://www.remlab.net/ndisc6/
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/ndpi-netfilter2/Makefile
+
+Package: iptables-mod-ndpi
+Submenu: Firewall
+Version: 3.2-25a5c2e1d619aa2d819b18bed8276b3bd7eb4c5b-3
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +iptables +kmod-ipt-ndpi +libpcap
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: ndpi successor of OpenDPI
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: ndpi-netfilter2-3.2-25a5c2e1d619aa2d819b18bed8276b3bd7eb4c5b.tar.bz2
+Type: ipkg
+Description:   nDPI is a ntop-maintained superset of the popular OpenDPI library
+http://www.ntop.org/products/ndpi/
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+Package: kmod-ipt-ndpi
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.2-25a5c2e1d619aa2d819b18bed8276b3bd7eb4c5b-3
+Depends: +kmod-nf-conntrack +kmod-nf-conntrack-netlink +kmod-ipt-compat-xtables +libpcap
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: nDPI net netfilter module
+Maintainer: 
+Source: ndpi-netfilter2-3.2-25a5c2e1d619aa2d819b18bed8276b3bd7eb4c5b.tar.bz2
+Type: ipkg
+Kernel-Config: CONFIG_NF_CONNTRACK_LABELS=y CONFIG_NETFILTER_XT_MATCH_CONNLABEL=y
+Description: nDPI net netfilter module
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/net-tools/Makefile
+
+Package: mii-tool
+Version: 2018-11-03-0eebece8c964e3cfa8a018f42b2e7e751a7009a0-2
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: configure media type using MII commands
+Maintainer: Yannick Chabanois <ycarus@zugaina.org>
+Source: net-tools-2018-11-03-0eebece8c964e3cfa8a018f42b2e7e751a7009a0.tar.xz
+License: GPL-2.0-or-later
+LicenseFiles: COPYING
+Type: ipkg
+Description: 	The mii-tool command allows you to set or autodetect the media type
+	or mii chipset-based ethernet devices. It traditionally had been
+	distributed in the net-tools package. This is a single distribution
+	optimized for embedded systems and fully automated cross/-sysroot-builds
+http://net-tools.sourceforge.net/
+Yannick Chabanois <ycarus@zugaina.org>
+@@
+
+Package: net-tools-route
+Version: 2018-11-03-0eebece8c964e3cfa8a018f42b2e7e751a7009a0-2
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: route
+Section: net
+Category: Network
+Repository: base
+Title: net-tools - route utility
+Maintainer: Yannick Chabanois <ycarus@zugaina.org>
+Source: net-tools-2018-11-03-0eebece8c964e3cfa8a018f42b2e7e751a7009a0.tar.xz
+License: GPL-2.0-or-later
+LicenseFiles: COPYING
+Type: ipkg
+Description: 	Replace busybox version of the route command with the full net-tools
+	version. This is normally not needed as busybox is smaller and provides
+	sufficient functionality, but some users may want or need the full
+	functionality of the net-tools variant (e.g. AF_X25).
+http://net-tools.sourceforge.net/
+Yannick Chabanois <ycarus@zugaina.org>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/nginx/Makefile
+
+Package: nginx
+Submenu: Web Servers/Proxies
+Version: 1.16.1-2
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +NGINX_PCRE:libpcre +(NGINX_SSL||NGINX_HTTP_CACHE||NGINX_HTTP_AUTH_BASIC):libopenssl +NGINX_HTTP_GZIP:zlib +NGINX_LUA:liblua +libpthread +NGINX_DAV:libexpat
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Build-Variant: no-ssl
+Section: net
+Category: Network
+Repository: base
+Title: Nginx web server
+Maintainer: Thomas Heil <heil@terminal-consulting.de> Ansuel Smith <ansuelsmth@gmail.com>
+Source: nginx-1.16.1.tar.gz
+License: 2-clause BSD-like license
+Type: ipkg
+Description:  nginx is an HTTP and reverse proxy server, as well as a mail proxy server, written by Igor Sysoev. (Some module require SSL module enable to show up in config menu)
+http://nginx.org/
+Thomas Heil <heil@terminal-consulting.de> Ansuel Smith <ansuelsmth@gmail.com>
+@@
+Config:
+  source "feeds/openmptcprouter/nginx/Config.in"
+@@
+
+Package: nginx-ssl
+Submenu: Web Servers/Proxies
+Version: 1.16.1-2
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +NGINX_PCRE:libpcre +(NGINX_SSL||NGINX_HTTP_CACHE||NGINX_HTTP_AUTH_BASIC):libopenssl +NGINX_HTTP_GZIP:zlib +NGINX_LUA:liblua +libpthread +NGINX_DAV:libexpat +libopenssl
+Conflicts: 
+Menu-Depends: 
+Provides: nginx
+Build-Variant: ssl
+Section: net
+Category: Network
+Repository: base
+Title: Nginx web server with SSL support
+Maintainer: Thomas Heil <heil@terminal-consulting.de> Ansuel Smith <ansuelsmth@gmail.com>
+Source: nginx-1.16.1.tar.gz
+License: 2-clause BSD-like license
+Type: ipkg
+Description:  nginx is an HTTP and reverse proxy server, as well as a mail proxy server, written by Igor Sysoev. (Some module require SSL module enable to show up in config menu) This varian is compiled with SSL support enabled. To enable additional module select them in the nginx default configuration menu.
+http://nginx.org/
+Thomas Heil <heil@terminal-consulting.de> Ansuel Smith <ansuelsmth@gmail.com>
+@@
+Config:
+  source "feeds/openmptcprouter/nginx/Config_ssl.in"
+@@
+
+Package: nginx-all-module
+Submenu: Web Servers/Proxies
+Version: 1.16.1-2
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libpcre +libopenssl +zlib +liblua +libpthread +libexpat
+Conflicts: 
+Menu-Depends: 
+Provides: nginx
+Build-Variant: all-module
+Section: net
+Category: Network
+Repository: base
+Title: Nginx web server with ALL module selected
+Maintainer: Thomas Heil <heil@terminal-consulting.de> Ansuel Smith <ansuelsmth@gmail.com>
+Source: nginx-1.16.1.tar.gz
+License: 2-clause BSD-like license
+Type: ipkg
+Description:  nginx is an HTTP and reverse proxy server, as well as a mail proxy server, written by Igor Sysoev. (Some module require SSL module enable to show up in config menu) This varian is compiled with ALL module selected.
+http://nginx.org/
+Thomas Heil <heil@terminal-consulting.de> Ansuel Smith <ansuelsmth@gmail.com>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/omr-6in4/Makefile
+
+Package: omr-6in4
+Version: 0.4-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: OMR
+Category: OpenMPTCProuter
+Repository: base
+Title: OpenMPTCProuter 6in4
+Maintainer: 
+Source: 
+Type: ipkg
+Description: OpenMPTCProuter 6in4 package
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/omr-quota/Makefile
+
+Package: omr-quota
+Version: 1.0-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +vnstat2
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: OpenMPTCProuter quota
+Maintainer: 
+Source: 
+Type: ipkg
+Description:   A module to enforce quota limit
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/omr-tracker/Makefile
+
+Package: omr-tracker
+Version: 1.7-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +bind-dig +httping +whois +shadowsocks-libev-ss-local
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: OpenMPTCProuter tracker
+Maintainer: 
+Source: 
+Type: ipkg
+Description:   A module to track OpenMPTCProuter connections
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/omr-update/Makefile
+
+Package: omr-update
+Version: 0.1-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: OMR
+Category: OpenMPTCProuter
+Repository: base
+Title: OpenMPTCProuter updater
+Maintainer: 
+Source: 
+Type: ipkg
+Description:   A module to update OpenMPTCProuter config
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/openmptcprouter/Makefile
+
+Package: openmptcprouter
+Version: 0.95-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +omr-tracker
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: OMR
+Category: OpenMPTCProuter
+Repository: base
+Title: OpenMPTCProuter config
+Maintainer: 
+Source: 
+Type: ipkg
+Description: OpenMPTCProuter package
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/openmptcprouter-full/Makefile
+
+Package: openmptcprouter-full
+Version: 0.14-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +mptcp +unbound-daemon +unbound-control +unbound-anchor +netifd +luci-app-dsvpn +mc +f2fs-tools +openmptcprouter +dnsmasq-full +uhttpd +uhttpd-mod-ubus +curl +iperf3-ssl +luci-app-iperf +arptables +bind-dig +libnetfilter-conntrack +ebtables +ebtables-utils +ip-full +nstat +iptables-mod-iface +iptables-mod-ipmark +iptables-mod-hashlimit +iptables-mod-condition +iptables-mod-trace +iptables-mod-conntrack-extra +iptables-mod-account +kmod-nf-nat +kmod-nf-nathelper +kmod-nf-nathelper-extra +iptables-mod-extra +conntrack +iptables-mod-ipsec +kmod-crypto-authenc +kmod-ipsec +kmod-ipsec4 +kmod-ipsec6 +kmod-ipt-ipsec +wireless-tools +libiwinfo-lua +ca-bundle +ca-certificates +luci-mod-admin-full +luci-app-firewall +luci-app-glorytun-tcp +luci-app-glorytun-udp +luci-app-shadowsocks-libev +luci-app-unbound +luci-theme-openmptcprouter +luci-theme-argon +luci-base +luci-app-omr-tracker +luci-app-omr-dscp +luci-app-sqm +sqm-scripts-extra +luci-app-vnstat2 +omr-quota +luci-app-omr-quota +luci-app-mptcp +luci-app-openmptcprouter +luci-app-omr-bypass +luci-app-mail +luci-app-upnp +luci-app-wol +luci-app-opkg +luci-app-uhttpd +luci-mod-rpc +rpcd-mod-rpcsys +rpcd-mod-file +rpcd-mod-iwinfo +luci-app-openvpn +shadowsocks-libev-ss-server +shadowsocks-libev-ss-tunnel +omr-6in4 +ip6tables-mod-nat +luci-proto-ipv6 +6to4 +6in4 +6rd +ip6tables +speedtestc +iftop +htop +nano +tcpdump +ethtool +iputils-ping +tracebox +!TARGET_mvebu:luci-proto-3g +!TARGET_mvebu:comgt-ncm +!TARGET_mvebu:luci-proto-ncm +!TARGET_mvebu:luci-proto-modemmanager +!TARGET_mvebu:luci-proto-ppp +omr-update +rng-tools +openvpn-openssl +mmc-utils +libimobiledevice +comgt +kmod-random-core +kmod-netem +ca-bundle +openssl-util +dejavu-fonts-ttf-DejaVuSerif +dejavu-fonts-ttf-DejaVuSerif-Bold +dejavu-fonts-ttf-DejaVuSerif-Italic +dejavu-fonts-ttf-DejaVuSerif-BoldItalic +luci-app-snmpd +iputils-tracepath +v2ray-plugin +netcat +simple-obfs +(TARGET_x86||TARGET_x86_64):kmod-iwlwifi +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl1000 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl100 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl105 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl135 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl2000 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl2030 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl3160 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl3168 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl5000 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl5150 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl6000g2 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl6000g2a +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl6000g2b +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl6050 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl7260 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl7265 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl7265d +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl8260c +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl8265 +(TARGET_x86||TARGET_x86_64):kmod-e1000 +(TARGET_x86||TARGET_x86_64):kmod-e1000e +(TARGET_x86||TARGET_x86_64):kmod-igb +(TARGET_x86||TARGET_x86_64):kmod-ne2k-pci +(TARGET_x86||TARGET_x86_64):kmod-r8169 +(TARGET_x86||TARGET_x86_64):kmod-8139too +(TARGET_x86||TARGET_x86_64):kmod-bnx2 +TARGET_mvebu:kmod-mwlwifi +TARGET_mvebu:mwlwifi-firmware-88w8864 +TARGET_mvebu:mwlwifi-firmware-88w8897 +TARGET_mvebu:mwlwifi-firmware-88w8964 +TARGET_mvebu:mwlwifi-firmware-88w8997 +!TARGET_mvebu:kmod-usb-serial +!TARGET_mvebu:kmod-usb-serial-option +!TARGET_mvebu:kmod-usb-serial-wwan +!TARGET_mvebu:usb-modeswitch +!TARGET_mvebu:uqmi +!TARGET_mvebu:umbim +!TARGET_mvebu:kmod-mii +!TARGET_mvebu:kmod-usb-net +!TARGET_mvebu:kmod-usb-wdm +!TARGET_mvebu:kmod-usb-net-qmi-wwan +!TARGET_mvebu:kmod-usb-net-cdc-mbim +!TARGET_mvebu:umbim +!TARGET_mvebu:kmod-usb-net-huawei-cdc-ncm +!TARGET_mvebu:kmod-usb-net-rndis +!TARGET_mvebu:kmod-usb-net-cdc-ether +!TARGET_mvebu:kmod-usb-net-ipheth +!TARGET_mvebu:usbmuxd +kmod-rt2800-usb +kmod-rtl8xxxu +kmod-rtl8192cu +kmod-net-rtl8192su +kmod-rtl8812au-ct +!TARGET_mvebu:luci-proto-qmi +wpad-basic +kmod-mt7601u +kmod-rtl8187 +TARGET_r4s:kmod-r8168 +(TARGET_x86||TARGET_x86_64):kmod-usb-net-rtl8152 +luci-app-mlvpn +mlvpn +464xlat +!TARGET_mvebu:kmod-usb-net-smsc75xx +kmod-zram +kmod-swconfig +swconfig +kmod-ipt-nat +kmod-ipt-nat6 +luci-app-https-dns-proxy +kmod-tcp-nanqinlang +(TARGET_x86_64||aarch64):kmod-tcp-bbr2 +iptables-mod-ipopt +igmpproxy +ss +iptraf-ng +luci-app-acl +block-mount +blockd +fstools +luci-app-shutdown +libwebp +luci-proto-gre +tcptraceroute +luci-proto-mbim +kmod-rtl8xxxu +kmod-ath9k-htc +luci-app-ttyd +luci-mod-dashboard +(TARGET_x86||TARGET_x86_64):rtl8192eu-firmware +kmod-usb2 +libustream-openssl +(TARGET_x86||TARGET_x86_64):kmod-ixgbevf +(TARGET_x86||TARGET_x86_64):kmod-igbvf +hwinfo +(TARGET_x86||TARGET_x86_64):dmidecode +luci-app-packet-capture +kmod-bonding +luci-proto-bonding +luci-app-sysupgrade +luci-theme-openwrt-2020 +luci-proto-wireguard +luci-app-wireguard +(TARGET_x86||TARGET_x86_64):kmod-r8125 +TARGET_x86_64:kmod-atlantic +LUCI_LANG_ar:luci-i18n-base-ar +LUCI_LANG_bg:luci-i18n-base-bg +LUCI_LANG_ca:luci-i18n-base-ca +LUCI_LANG_cs:luci-i18n-base-cs +LUCI_LANG_de:luci-i18n-base-de +LUCI_LANG_en:luci-i18n-base-en +LUCI_LANG_fi:luci-i18n-base-fi +LUCI_LANG_fr:luci-i18n-base-fr +LUCI_LANG_de:luci-i18n-base-de +LUCI_LANG_el:luci-i18n-base-el +LUCI_LANG_he:luci-i18n-base-he +LUCI_LANG_hi:luci-i18n-base-hi +LUCI_LANG_hu:luci-i18n-base-hu +LUCI_LANG_it:luci-i18n-base-it +LUCI_LANG_ja:luci-i18n-base-ja +LUCI_LANG_ko:luci-i18n-base-ko +LUCI_LANG_mr:luci-i18n-base-mr +LUCI_LANG_ms:luci-i18n-base-ms +LUCI_LANG_no:luci-i18n-base-no +LUCI_LANG_pl:luci-i18n-base-pl +LUCI_LANG_pt-br:luci-i18n-base-pt-br +LUCI_LANG_pt:luci-i18n-base-pt +LUCI_LANG_ro:luci-i18n-base-ro +LUCI_LANG_ru:luci-i18n-base-ru +LUCI_LANG_es:luci-i18n-base-es +LUCI_LANG_sk:luci-i18n-base-sk +LUCI_LANG_sv:luci-i18n-base-sv +LUCI_LANG_tr:luci-i18n-base-tr +LUCI_LANG_uk:luci-i18n-base-uk +LUCI_LANG_vi:luci-i18n-base-vi +LUCI_LANG_zh-cn:luci-i18n-base-zh-cn +LUCI_LANG_zh-tw:luci-i18n-base-zh-tw +LUCI_LANG_oc:luci-i18n-base-oc
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: OMR
+Category: OpenMPTCProuter
+Repository: base
+Title: OpenMPTCProuter Full Package
+Maintainer: 
+Source: 
+Type: ipkg
+Description: OpenMPTCProuter Full package
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/openmptcprouter-mini/Makefile
+
+Package: openmptcprouter-mini
+Version: 0.1-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +mptcp +unbound-daemon +unbound-control +unbound-anchor +netifd +luci-app-dsvpn +mc +f2fs-tools +openmptcprouter +dnsmasq-full +uhttpd +uhttpd-mod-ubus +curl +iperf3-ssl +luci-app-iperf +arptables +bind-dig +libnetfilter-conntrack +ebtables +ebtables-utils +ip-full +iptables-mod-iface +iptables-mod-ipmark +iptables-mod-hashlimit +iptables-mod-condition +iptables-mod-trace +iptables-mod-conntrack-extra +iptables-mod-account +kmod-nf-nat +kmod-nf-nathelper +kmod-nf-nathelper-extra +iptables-mod-extra +iptables-mod-ipsec +kmod-crypto-authenc +kmod-ipsec +kmod-ipsec4 +kmod-ipsec6 +kmod-ipt-ipsec +wireless-tools +libiwinfo-lua +ca-bundle +ca-certificates +libustream-openssl +luci-mod-admin-full +luci-app-firewall +luci-app-glorytun-tcp +luci-app-glorytun-udp +luci-app-shadowsocks-libev +luci-app-unbound +luci-theme-openmptcprouter +luci-base +luci-app-omr-tracker +luci-app-omr-dscp +luci-app-sqm +sqm-scripts-extra +luci-app-vnstat2 +omr-quota +luci-app-omr-quota +luci-app-mptcp +luci-app-openmptcprouter +luci-app-omr-bypass +luci-app-mail +luci-app-upnp +luci-app-opkg +luci-app-uhttpd +luci-mod-rpc +rpcd-mod-rpcsys +rpcd-mod-file +rpcd-mod-iwinfo +luci-app-openvpn +macvlan +shadowsocks-libev-ss-server +shadowsocks-libev-ss-tunnel +omr-6in4 +ip6tables-mod-nat +luci-proto-ipv6 +6to4 +6in4 +6rd +ip6tables +iftop +htop +tcpdump +ethtool +iputils-ping +!TARGET_mvebu:luci-proto-3g +!TARGET_mvebu:comgt-ncm +!TARGET_mvebu:luci-proto-ncm +!TARGET_mvebu:luci-proto-modemmanager +!TARGET_mvebu:luci-proto-ppp +omr-update +rng-tools +openvpn-openssl +mmc-utils +libimobiledevice +comgt +kmod-random-core +ca-bundle +openssl-util +dejavu-fonts-ttf-DejaVuSerif +dejavu-fonts-ttf-DejaVuSerif-Bold +dejavu-fonts-ttf-DejaVuSerif-Italic +dejavu-fonts-ttf-DejaVuSerif-BoldItalic +iputils-tracepath +netcat +adb-enablemodem +(TARGET_x86||TARGET_x86_64):kmod-iwlwifi +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl1000 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl100 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl105 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl135 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl2000 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl2030 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl3160 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl3168 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl5000 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl5150 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl6000g2 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl6000g2a +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl6000g2b +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl6050 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl7260 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl7265 +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl7265d +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl8260c +(TARGET_x86||TARGET_x86_64):iwlwifi-firmware-iwl8265 +(TARGET_x86||TARGET_x86_64):kmod-e1000 +(TARGET_x86||TARGET_x86_64):kmod-e1000e +(TARGET_x86||TARGET_x86_64):kmod-igb +(TARGET_x86||TARGET_x86_64):kmod-ne2k-pci +(TARGET_x86||TARGET_x86_64):kmod-r8169 +(TARGET_x86||TARGET_x86_64):kmod-8139too +(TARGET_x86||TARGET_x86_64):kmod-bnx2 +TARGET_mvebu:kmod-mwlwifi +TARGET_mvebu:mwlwifi-firmware-88w8864 +TARGET_mvebu:mwlwifi-firmware-88w8897 +TARGET_mvebu:mwlwifi-firmware-88w8964 +TARGET_mvebu:mwlwifi-firmware-88w8997 +!TARGET_mvebu:kmod-usb-serial +!TARGET_mvebu:kmod-usb-serial-option +!TARGET_mvebu:kmod-usb-serial-wwan +!TARGET_mvebu:usb-modeswitch +!TARGET_mvebu:uqmi +!TARGET_mvebu:umbim +!TARGET_mvebu:kmod-mii +!TARGET_mvebu:kmod-usb-net +!TARGET_mvebu:kmod-usb-wdm +!TARGET_mvebu:kmod-usb-net-qmi-wwan +!TARGET_mvebu:kmod-usb-net-cdc-mbim +!TARGET_mvebu:umbim +!TARGET_mvebu:kmod-usb-net-huawei-cdc-ncm +!TARGET_mvebu:kmod-usb-net-rndis +!TARGET_mvebu:kmod-usb-net-cdc-ether +!TARGET_mvebu:kmod-usb-net-ipheth +!TARGET_mvebu:usbmuxd +kmod-rt2800-usb +kmod-rtl8xxxu +kmod-rtl8192cu +kmod-net-rtl8192su +!TARGET_mvebu:luci-proto-qmi +wpad-basic +kmod-mt7601u +kmod-rtl8187 +luci-app-mlvpn +mlvpn +464xlat +!TARGET_mvebu:kmod-usb-net-smsc75xx +kmod-zram +kmod-swconfig +swconfig +kmod-ipt-nat +kmod-ipt-nat6 +luci-app-https-dns-proxy +kmod-tcp-nanqinlang +iptables-mod-ipopt +ss +luci-app-acl +block-mount +blockd +fstools +luci-app-shutdown +libwebp +luci-proto-gre +LUCI_LANG_en:luci-i18n-base-en
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: OMR
+Category: OpenMPTCProuter
+Repository: base
+Title: OpenMPTCProuter Mini Package
+Maintainer: 
+Source: 
+Type: ipkg
+Description: OpenMPTCProuter Mini package
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/protobuf/Makefile
+Build-Types: host
+
+Package: protobuf
+Version: 3.14.0-2
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +zlib +libpthread +libatomic +libstdcpp +protobuf-lite
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Libraries
+Repository: base
+Title: A structured data encoding library
+Maintainer: Ken Keys <kkeys@caida.org>
+Source: protobuf-cpp-3.14.0.tar.gz
+License: BSD-3-Clause
+LicenseFiles: LICENSE
+Type: ipkg
+Description: Protocol Buffers are a way of encoding structured data in an efficient
+yet extensible format. Google uses Protocol Buffers for almost all
+of its internal RPC protocols and file formats.
+
+This package provides the libprotoc, libprotobuf, and libprotobuf-lite
+libraries.  For a much smaller protobuf package, see "protobuf-lite".
+
+https://github.com/google/protobuf
+Ken Keys <kkeys@caida.org>
+@@
+
+Package: protobuf-lite
+Version: 3.14.0-2
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +zlib +libpthread +libatomic +libstdcpp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Libraries
+Repository: base
+Title: A structured data encoding library
+Maintainer: Ken Keys <kkeys@caida.org>
+Source: protobuf-cpp-3.14.0.tar.gz
+License: BSD-3-Clause
+LicenseFiles: LICENSE
+Type: ipkg
+Description: Protocol Buffers are a way of encoding structured data in an efficient
+yet extensible format. Google uses Protocol Buffers for almost all
+of its internal RPC protocols and file formats.
+
+This package provides the libprotobuf-lite library.
+
+https://github.com/google/protobuf
+Ken Keys <kkeys@caida.org>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/r8168/Makefile
+
+Package: kmod-r8168
+Submenu: Network Devices
+Version: <LINUX_VERSION>+8.049.02--
+Depends: 
+Conflicts: kmod-r8169
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: Driver for Realtek r8168 chipsets
+Maintainer: 
+Source: r8168-8.049.02.tar.xz
+Type: ipkg
+Description: Driver for Realtek r8168 chipsets
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/serdisplib/Makefile
+
+Package: serdisplib
+Version: 2.01-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libusb-1.0 +libusb-compat
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: libs
+Category: Libraries
+Repository: base
+Title: A display control library
+Maintainer: 
+Source: serdisplib-2.01.tar.gz
+Type: ipkg
+Description: 	serdisplib is a library to drive serial and parallel displays 
+	with built-in controllers.
+http://serdisplib.sourceforge.net/
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/shadowsocks-libev/Makefile
+
+Package: shadowsocks-libev-config
+Submenu: Web Servers/Proxies
+Version: 3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543-11
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: shadowsocks-libev config scripts
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: shadowsocks-libev-3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543.tar.xz
+License: GPL-3.0+
+LicenseFiles: LICENSE
+Type: ipkg
+Description: shadowsocks-libev config scripts
+https://github.com/shadowsocks/shadowsocks-libev
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+Package: shadowsocks-libev-ss-rules
+Submenu: Web Servers/Proxies
+Version: 3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543-11
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +ip +ipset +iptables-mod-tproxy +resolveip +shadowsocks-libev-ss-redir +shadowsocks-libev-config
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: shadowsocks-libev ss-rules
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: shadowsocks-libev-3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543.tar.xz
+License: GPL-3.0+
+LicenseFiles: LICENSE
+Type: ipkg
+Description: shadowsocks-libev ss-rules
+https://github.com/shadowsocks/shadowsocks-libev
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+Package: shadowsocks-libev-ss-local
+Submenu: Web Servers/Proxies
+Version: 3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543-11
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libcares +libev +libmbedtls +libpcre +libpthread +libsodium +shadowsocks-libev-config +zlib +libpcap +libcap +libstdcpp +libelf
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: shadowsocks-libev ss-local
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: shadowsocks-libev-3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543.tar.xz
+License: GPL-3.0+
+LicenseFiles: LICENSE
+Type: ipkg
+Description: shadowsocks-libev ss-local
+https://github.com/shadowsocks/shadowsocks-libev
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+Package: shadowsocks-libev-ss-redir
+Submenu: Web Servers/Proxies
+Version: 3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543-11
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libcares +libev +libmbedtls +libpcre +libpthread +libsodium +shadowsocks-libev-config +zlib +libpcap +libcap +libstdcpp +libelf
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: shadowsocks-libev ss-redir
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: shadowsocks-libev-3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543.tar.xz
+License: GPL-3.0+
+LicenseFiles: LICENSE
+Type: ipkg
+Description: shadowsocks-libev ss-redir
+https://github.com/shadowsocks/shadowsocks-libev
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+Package: shadowsocks-libev-ss-tunnel
+Submenu: Web Servers/Proxies
+Version: 3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543-11
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libcares +libev +libmbedtls +libpcre +libpthread +libsodium +shadowsocks-libev-config +zlib +libpcap +libcap +libstdcpp +libelf
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: shadowsocks-libev ss-tunnel
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: shadowsocks-libev-3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543.tar.xz
+License: GPL-3.0+
+LicenseFiles: LICENSE
+Type: ipkg
+Description: shadowsocks-libev ss-tunnel
+https://github.com/shadowsocks/shadowsocks-libev
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+Package: shadowsocks-libev-ss-server
+Submenu: Web Servers/Proxies
+Version: 3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543-11
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libcares +libev +libmbedtls +libpcre +libpthread +libsodium +shadowsocks-libev-config +zlib +libpcap +libcap +libstdcpp +libelf
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: shadowsocks-libev ss-server
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: shadowsocks-libev-3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543.tar.xz
+License: GPL-3.0+
+LicenseFiles: LICENSE
+Type: ipkg
+Description: shadowsocks-libev ss-server
+https://github.com/shadowsocks/shadowsocks-libev
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/shadowsocks-v2ray-plugin/Makefile
+Build-Depends: golang/host
+
+Package: v2ray-plugin
+Version: 6c0c5fb15851e13b36fe2eeaaba97fd27c9d291b
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread @(aarch64||arm||i386||i686||mips||mips64||mips64el||mipsel||powerpc64||x86_64) +golang-protobuf-dev +v2ray-core +v2ray-ext-dev +golang-golang-x-crypto-dev
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: SIP003 plugin for shadowsocks, based on v2ray
+Maintainer: Ycarus
+Source: v2ray-plugin-6c0c5fb15851e13b36fe2eeaaba97fd27c9d291b.tar.xz
+Type: ipkg
+Description: 	Yet another SIP003 plugin for shadowsocks, based on v2ray
+https://github.com/shadowsocks/v2ray-plugin
+Ycarus
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/shortcut-fe/Makefile
+
+Package: kmod-shortcut-fe
+Submenu: Network Support
+Version: <LINUX_VERSION>-2
+Depends: 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: Kernel driver for SFE
+Maintainer: 
+Source: 
+Type: ipkg
+Kernel-Config: CONFIG_NF_CONNTRACK_EVENTS=y CONFIG_NF_CONNTRACK_TIMEOUT=y CONFIG_SHORTCUT_FE=y CONFIG_XFRM=y
+Description: Kernel driver for SFE
+
+@@
+
+Package: kmod-shortcut-fe-cm
+Submenu: Network Support
+Version: <LINUX_VERSION>-2
+Depends: +kmod-ipt-conntrack +kmod-shortcut-fe
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: Kernel driver for SFE
+Maintainer: 
+Source: 
+Type: ipkg
+Kernel-Config: CONFIG_NF_CONNTRACK_CHAIN_EVENTS=y
+Description: Kernel driver for SFE
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/simple-obfs/Makefile
+
+Package: simple-obfs
+Version: 486bebd9-3
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libev +libpthread
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: Simple-obfs
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: simple-obfs-486bebd9-3.tar.xz
+License: GPLv3
+LicenseFiles: LICENSE
+Type: ipkg
+Description: Simple-obfs is a simple obfusacting tool, designed as plugin server of shadowsocks.
+https://github.com/shadowsocks/simple-obfs
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+Package: simple-obfs-server
+Version: 486bebd9-3
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libev +libpthread
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: Simple-obfs
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: simple-obfs-486bebd9-3.tar.xz
+License: GPLv3
+LicenseFiles: LICENSE
+Type: ipkg
+Description: Simple-obfs is a simple obfusacting tool, designed as plugin server of shadowsocks.
+https://github.com/shadowsocks/simple-obfs
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/speedtestc/Makefile
+
+Package: speedtestc
+Version: 5bd807bc32269321e500a7e7d36b8ec3fefa5f47-3
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libopenssl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: Client for SpeedTest.net infrastructure written in pure C99 standard using only POSIX libraries.
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: speedtestc-5bd807bc32269321e500a7e7d36b8ec3fefa5f47.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: Client for SpeedTest.net infrastructure written in pure C99 standard using only POSIX libraries.
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/tcptraceroute/Makefile
+
+Package: tcptraceroute
+Version: 1.5beta7-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libpcap +libnet-1.2.x
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: A traceroute implementation using TCP packets.
+Maintainer: 
+Source: tcptraceroute-1.5beta7.tar.gz
+Type: ipkg
+Description: A traceroute implementation using TCP packets.
+http://michael.toren.net/code/tcptraceroute/
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/tracebox/Makefile
+
+Package: tracebox
+Version: 0.4.4-2
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +liblua +libpcap +libpthread +librt +curl +libjson-c +libnetfilter-queue +libstdcpp
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: tracebox
+Maintainer: Ycarus <ycarus@zugaina.org>
+Source: tracebox-0.4.4.tar.bz2
+Type: ipkg
+Description:   Tracebox is a tool that allows to detect middleboxes on any paths, i.e.,
+between a source and any destination. Tracebox can be viewed as a tool similar
+to traceroute as it uses ICMP replies to identify changes in the packets.
+Ycarus <ycarus@zugaina.org>
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/v2ray-core/Makefile
+Build-Depends: golang/host
+
+Package: v2ray-core
+Submenu: Project V
+Version: 4.43.0-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread @(aarch64||arm||i386||i686||mips||mips64||mips64el||mipsel||powerpc64||x86_64) +ca-bundle +protobuf
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: A platform for building proxies
+Maintainer: Yannick Chabanois <ycarus@zugaina.org>
+Source: v4.43.0.tar.gz
+License: MIT
+LicenseFiles: LICENSE
+Type: ipkg
+Description: Project V is a set of network tools that help you to build your own computer network.
+It secures your network connections and thus protects your privacy.
+
+  This package contains v2ray, v2ctl and v2ray-assets.
+https://www.v2fly.org
+Yannick Chabanois <ycarus@zugaina.org>
+@@
+Config:
+	source "feeds/openmptcprouter/v2ray-core/Config.in"
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/v2ray-ext/Makefile
+Build-Depends: golang/host
+
+Package: v2ray-ext-dev
+Submenu: Go
+Version: 20190725-9eb3057da9bf83f83f4f1bda8528d0567419e709-1
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread @(aarch64||arm||i386||i686||mips||mips64||mips64el||mipsel||powerpc64||x86_64) +protobuf
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: lang
+Category: Languages
+Repository: base
+Title: Go support for Google protocol buffers
+Maintainer: 
+Source: v2ray-ext-20190725-9eb3057da9bf83f83f4f1bda8528d0567419e709.tar.xz
+License: BSD-3-Clause
+LicenseFiles: LICENSE
+Type: ipkg
+Description: Go support for Google protocol buffers
+https://github.com/golang/protobuf
+
+@@
+
+
+Source-Makefile: feeds/openmptcprouter/xtables-addons/Makefile
+Build-Depends: iptables
+
+Package: kmod-ipt-compat-xtables
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core +IPV6:kmod-ip6tables
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: API compatibilty layer netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: API compatibilty layer netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-nathelper-rtsp
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core +kmod-ipt-conntrack-extra +kmod-ipt-nat
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: RTSP Conntrack and NAT netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: RTSP Conntrack and NAT netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-account
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-account
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: ACCOUNT iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: ACCOUNT iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-account
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core +kmod-ipt-compat-xtables
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: ACCOUNT netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: ACCOUNT netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-chaos
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-chaos
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: CHAOS iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: CHAOS iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-chaos
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core +kmod-ipt-compat-xtables +kmod-ipt-delude +kmod-ipt-tarpit
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: CHAOS netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: CHAOS netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-condition
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-condition
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: Condition iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: Condition iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-condition
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: Condition netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: Condition netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-delude
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-delude
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: DELUDE iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: DELUDE iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-delude
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core +kmod-ipt-compat-xtables
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: DELUDE netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: DELUDE netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-dhcpmac
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-dhcpmac
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: DHCPMAC iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: DHCPMAC iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-dhcpmac
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core +kmod-ipt-compat-xtables
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: DHCPMAC netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: DHCPMAC netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-dnetmap
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-dnetmap
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: DNETMAP iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: DNETMAP iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-dnetmap
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core +kmod-ipt-compat-xtables +kmod-ipt-nat
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: DNETMAP netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: DNETMAP netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-fuzzy
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-fuzzy
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: fuzzy iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: fuzzy iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-fuzzy
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: fuzzy netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: fuzzy netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-geoip
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-geoip
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: geoip iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: geoip iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-geoip
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: geoip netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: geoip netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-iface
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-iface
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: iface iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: iface iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-iface
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: iface netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: iface netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-ipmark
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-ipmark
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: IPMARK iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: IPMARK iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-ipmark
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core +kmod-ipt-compat-xtables
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: IPMARK netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: IPMARK netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-ipp2p
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-ipp2p
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: IPP2P iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: IPP2P iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-ipp2p
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core +kmod-ipt-compat-xtables
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: IPP2P netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: IPP2P netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-ipv4options
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-ipv4options
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: ipv4options iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: ipv4options iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-ipv4options
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: ipv4options netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: ipv4options netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-length2
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-length2
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: length2 iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: length2 iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-length2
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core +kmod-ipt-compat-xtables
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: length2 netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: length2 netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-logmark
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-logmark
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: LOGMARK iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: LOGMARK iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-logmark
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core +kmod-ipt-compat-xtables
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: LOGMARK netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: LOGMARK netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-lscan
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-lscan
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: lscan iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: lscan iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-lscan
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: lscan netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: lscan netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-lua
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-lua
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: Lua PacketScript iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: Lua PacketScript iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-lua
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core +kmod-ipt-conntrack-extra
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: Lua PacketScript netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: Lua PacketScript netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-proto
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-proto
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: PROTO iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: PROTO iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-proto
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: PROTO netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: PROTO netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-psd
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-psd
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: psd iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: psd iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-psd
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: psd netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: psd netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-quota2
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-quota2
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: quota2 iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: quota2 iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-quota2
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: quota2 netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: quota2 netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-sysrq
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-sysrq
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: SYSRQ iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: SYSRQ iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-sysrq
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core +kmod-ipt-compat-xtables +kmod-crypto-hash
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: SYSRQ netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: SYSRQ netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptables-mod-tarpit
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +kmod-ipt-tarpit
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: TARPIT iptables extension
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: TARPIT iptables extension
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: kmod-ipt-tarpit
+Submenu: Netfilter Extensions
+Version: <LINUX_VERSION>+3.18-4
+Depends: +kmod-ipt-core +kmod-ipt-compat-xtables
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: kernel
+Category: Kernel modules
+Title: TARPIT netfilter module
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: TARPIT netfilter module
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptaccount
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +iptables-mod-account
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: iptables-mod-account control utility
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: iptables-mod-account control utility
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+
+Package: iptgeoip
+Submenu: Firewall
+Version: 3.18-4
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread iptables +iptables-mod-geoip +perl +perlbase-getopt +perlbase-io +perl-text-csv_xs +perl-net-cidr-lite +wget-ssl +!BUSYBOX_CONFIG_ZCAT:gzip
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: iptables-mod-geoip support scripts for MaxMind GeoIP databases
+Maintainer: Jo-Philipp Wich <jo@mein.io>
+Source: xtables-addons-3.18.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: iptables-mod-geoip support scripts for MaxMind GeoIP databases
+https://inai.de/projects/xtables-addons/
+Jo-Philipp Wich <jo@mein.io>
+@@
+Config:
+	menu "Select iptgeoip options"
+		config IPTGEOIP_PRESERVE
+			bool "Preserve across sysupgrades"
+			default n
+			help
+			  Backup and restore during sysupgrade (requires >7MB)
+	endmenu
+@@
+
+

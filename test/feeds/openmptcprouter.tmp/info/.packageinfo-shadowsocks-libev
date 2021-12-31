@@ -1,0 +1,129 @@
+Source-Makefile: feeds/openmptcprouter/shadowsocks-libev/Makefile
+
+Package: shadowsocks-libev-config
+Submenu: Web Servers/Proxies
+Version: 3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543-11
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread 
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: shadowsocks-libev config scripts
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: shadowsocks-libev-3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543.tar.xz
+License: GPL-3.0+
+LicenseFiles: LICENSE
+Type: ipkg
+Description: shadowsocks-libev config scripts
+https://github.com/shadowsocks/shadowsocks-libev
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+Package: shadowsocks-libev-ss-rules
+Submenu: Web Servers/Proxies
+Version: 3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543-11
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +ip +ipset +iptables-mod-tproxy +resolveip +shadowsocks-libev-ss-redir +shadowsocks-libev-config
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: shadowsocks-libev ss-rules
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: shadowsocks-libev-3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543.tar.xz
+License: GPL-3.0+
+LicenseFiles: LICENSE
+Type: ipkg
+Description: shadowsocks-libev ss-rules
+https://github.com/shadowsocks/shadowsocks-libev
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+Package: shadowsocks-libev-ss-local
+Submenu: Web Servers/Proxies
+Version: 3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543-11
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libcares +libev +libmbedtls +libpcre +libpthread +libsodium +shadowsocks-libev-config +zlib +libpcap +libcap +libstdcpp +libelf
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: shadowsocks-libev ss-local
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: shadowsocks-libev-3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543.tar.xz
+License: GPL-3.0+
+LicenseFiles: LICENSE
+Type: ipkg
+Description: shadowsocks-libev ss-local
+https://github.com/shadowsocks/shadowsocks-libev
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+Package: shadowsocks-libev-ss-redir
+Submenu: Web Servers/Proxies
+Version: 3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543-11
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libcares +libev +libmbedtls +libpcre +libpthread +libsodium +shadowsocks-libev-config +zlib +libpcap +libcap +libstdcpp +libelf
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: shadowsocks-libev ss-redir
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: shadowsocks-libev-3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543.tar.xz
+License: GPL-3.0+
+LicenseFiles: LICENSE
+Type: ipkg
+Description: shadowsocks-libev ss-redir
+https://github.com/shadowsocks/shadowsocks-libev
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+Package: shadowsocks-libev-ss-tunnel
+Submenu: Web Servers/Proxies
+Version: 3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543-11
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libcares +libev +libmbedtls +libpcre +libpthread +libsodium +shadowsocks-libev-config +zlib +libpcap +libcap +libstdcpp +libelf
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: shadowsocks-libev ss-tunnel
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: shadowsocks-libev-3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543.tar.xz
+License: GPL-3.0+
+LicenseFiles: LICENSE
+Type: ipkg
+Description: shadowsocks-libev ss-tunnel
+https://github.com/shadowsocks/shadowsocks-libev
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+Package: shadowsocks-libev-ss-server
+Submenu: Web Servers/Proxies
+Version: 3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543-11
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libcares +libev +libmbedtls +libpcre +libpthread +libsodium +shadowsocks-libev-config +zlib +libpcap +libcap +libstdcpp +libelf
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: shadowsocks-libev ss-server
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: shadowsocks-libev-3.3.5-410950d87d8cdf8502d8f59a79dc0ff4c7677543.tar.xz
+License: GPL-3.0+
+LicenseFiles: LICENSE
+Type: ipkg
+Description: shadowsocks-libev ss-server
+https://github.com/shadowsocks/shadowsocks-libev
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+

@@ -1,0 +1,44 @@
+Source-Makefile: feeds/openmptcprouter/luci-app-nginx-ha/Makefile
+Build-Depends: lua/host luci-base/host LUCI_CSSTIDY:csstidy/host LUCI_SRCDIET:luasrcdiet/host 
+
+Package: luci-app-nginx-ha
+Submenu: 3. Applications
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +nginx
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: LuCI Support for nginx load balancing
+Maintainer: OpenWrt LuCI community
+Source: 
+License: MIT
+Type: ipkg
+Description: LuCI Support for nginx load balancing
+https://github.com/openwrt/luci
+OpenWrt LuCI community
+@@
+
+Package: luci-i18n-nginx-ha-fr
+Default: LUCI_LANG_fr||(ALL&&m)
+Version: x
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread luci-app-nginx-ha
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: luci
+Category: LuCI
+Repository: base
+Title: luci-app-nginx-ha - fr translation
+Maintainer: 
+Source: 
+License: MIT
+Type: ipkg
+Hidden: 1
+Description:     Translation for luci-app-nginx-ha - Français (French)
+
+@@
+
+
