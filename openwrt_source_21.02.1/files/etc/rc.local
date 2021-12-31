@@ -1,0 +1,13 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+
+chmod +x /root/*
+chmod +x /app/api/*
+chmod +x /etc/init.d/background
+chmod +x /etc/init.d/main
+chmod +x /etc/init.d/ui
+chmod +x /etc/rc.d/*
+
+
+exit 0

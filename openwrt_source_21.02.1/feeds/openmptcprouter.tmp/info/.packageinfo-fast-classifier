@@ -1,0 +1,41 @@
+Source-Makefile: feeds/openmptcprouter/fast-classifier/Makefile
+
+Package: kmod-fast-classifier
+Submenu: Network Support
+Version: <LINUX_VERSION>-1
+Depends: +kmod-ipt-conntrack +kmod-shortcut-fe
+Conflicts: 
+Menu-Depends: 
+Provides: fast-classifier
+Section: kernel
+Category: Kernel modules
+Title: Kernel driver for FAST Classifier
+Maintainer: 
+Source: 
+Type: ipkg
+Kernel-Config: CONFIG_NF_CONNTRACK_CHAIN_EVENTS=y CONFIG_NF_CONNTRACK_MARK=y
+Description: FAST Classifier talks to SFE to make decisions about offloading connections
+
+@@
+
+Package: kmod-fast-classifier-noload
+Submenu: Network Support
+Version: <LINUX_VERSION>-1
+Depends: +kmod-ipt-conntrack +kmod-shortcut-fe
+Conflicts: 
+Menu-Depends: 
+Provides: fast-classifier
+Section: kernel
+Category: Kernel modules
+Title: Kernel driver for FAST Classifier
+Maintainer: 
+Source: 
+Type: ipkg
+Kernel-Config: CONFIG_NF_CONNTRACK_CHAIN_EVENTS=y CONFIG_NF_CONNTRACK_MARK=y
+Description: FAST Classifier talks to SFE to make decisions about offloading connections
+
+This package does not load fast-classifier at boot by default
+
+@@
+
+

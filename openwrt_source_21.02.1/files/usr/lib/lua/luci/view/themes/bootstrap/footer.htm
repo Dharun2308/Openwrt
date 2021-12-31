@@ -1,0 +1,49 @@
+
+<%#
+ Copyright 2008 Steven Barth <steven@midlink.org>
+ Copyright 2008 Jo-Philipp Wich <jow@openwrt.org>
+ Copyright 2012 David Menting <david@nut-bolt.nl>
+ Licensed to the public under the Apache License 2.0.
+-%>
+
+<% local ver = require "luci.version" %>
+
+
+ <style>
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #222;
+  background-image: linear-gradient(to bottom, #333333, #222222);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  background-repeat: repeat-x;
+  color: white;
+ padding: 0 5px;
+
+ text-align: center;
+}
+
+p{
+	margin:0;
+	padding: 7px;
+}
+
+</style>
+
+<div class="footer">
+  <p>Copyright-2021   Arca-Jaitra</p>
+</div> 
+
+
+
+
+
+   <footer>
+    <ul class="breadcrumb pull-right" id="modemenu" style="display:none"></ul>
+   </footer>
+  </div>
+  <script type="text/javascript">L.require('menu-bootstrap')</script>
+ </body>
+</html>

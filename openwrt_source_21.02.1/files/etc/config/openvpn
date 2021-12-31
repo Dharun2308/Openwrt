@@ -1,0 +1,9 @@
+
+config openvpn 'vpn1'
+        option config '/etc/openvpn/vpn1.ovpn'
+        option enabled '0'
+
+config openvpn 'vpn2'
+        option config '/etc/openvpn/vpn2.ovpn'
+        option enabled '0'
+

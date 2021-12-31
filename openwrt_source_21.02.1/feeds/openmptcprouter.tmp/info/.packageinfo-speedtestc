@@ -1,0 +1,21 @@
+Source-Makefile: feeds/openmptcprouter/speedtestc/Makefile
+
+Package: speedtestc
+Version: 5bd807bc32269321e500a7e7d36b8ec3fefa5f47-3
+Depends: +libc +USE_GLIBC:librt +USE_GLIBC:libpthread +libopenssl
+Conflicts: 
+Menu-Depends: 
+Provides: 
+Section: net
+Category: Network
+Repository: base
+Title: Client for SpeedTest.net infrastructure written in pure C99 standard using only POSIX libraries.
+Maintainer: Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+Source: speedtestc-5bd807bc32269321e500a7e7d36b8ec3fefa5f47.tar.xz
+License: GPL-2.0
+Type: ipkg
+Description: Client for SpeedTest.net infrastructure written in pure C99 standard using only POSIX libraries.
+Ycarus (Yannick Chabanois) <ycarus@zugaina.org>
+@@
+
+
