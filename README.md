@@ -3,6 +3,7 @@
 ## Table of contents
 * [General info](#general-info)
 * [Build using imagebuilder](#Build-using-imagebuilder)
+* [Build packages using SDK](#Build-packages-using-SDK)
 * [Connecting to a Wireless Network](#Connecting-to-a-Wireless-Network)
 * [Luci Web Interface](#Luci-Web-Interface)
 * [USB Tethering](#usb-tethering)
@@ -43,6 +44,11 @@ Decompress the file using following command:
 tar -xvf filename
 ```
 
+Go inside the decompressed folder:
+```ruby
+cd filename
+```
+
 Find out available profiles using the command:
 ```ruby
 make info
@@ -58,6 +64,26 @@ The following website has an example:
 https://bmaupin.github.io/wiki/other/openwrt/openwrt-80211s.html
 
 
+## Build packages using SDK 
+
+For tutorial visit: https://openwrt.org/docs/guide-developer/toolchain/using_the_sdk
+
+### Downloads link
+https://downloads.openwrt.org
+
+Download SDK for specific traget from above link.
+
+Decompress the file using following command:
+```ruby
+tar -xvf filename
+```
+
+Go inside the decompressed folder:
+```ruby
+cd filename
+```
+
+If any additional feeds need to be added, add them in "feeds.conf.default" file.
 
 ## Connecting to a Wireless Network
 
