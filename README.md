@@ -35,6 +35,30 @@ https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting
 ### Downloads link
 https://downloads.openwrt.org
 
+Download imagebuilder for specific traget from above link.
+
+
+Decompress the file using following command:
+```ruby
+tar -xvf filename
+```
+
+Find out available profiles using the command:
+```ruby
+make info
+```
+
+Build for a specific profile with required packages for example:
+
+```ruby
+make image PROFILE=rpi-4 PACKAGES="uhttpd uhttpd-mod-ubus libiwinfo-lua luci-base luci-mod-admin-full luci-theme-bootstrap wpad-mesh-wolfssl -wpad-basic -wpad-mini -ppp -ppp-mod-pppoe -kmod-pppoe -ip6tables -odhcp6c -kmod-ipv6 -kmod-ip6tables -odhcpd-ipv6only -odhcpd -iptables -opkg -uclient-fetch -libuclient20160123 -firewall -kmod-ipt-core -kmod-ipt-offload -kmod-nf-conntrack -kmod-nf-flow -kmod-nf-ipt -kmod-nf-reject -dnsmasq"
+```
+
+The following website has an example:
+https://bmaupin.github.io/wiki/other/openwrt/openwrt-80211s.html
+
+
+
 ## Connecting to a Wireless Network
 
 We need Internet connection in the Router to install new packages. 
