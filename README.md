@@ -15,7 +15,8 @@
 * [Other](#other)
 
 
-Load balancing/failover with multiple WAN interfaces
+## Downloads link
+https://downloads.openwrt.org
 
 
 ## General info
