@@ -85,6 +85,34 @@ cd filename
 
 If any additional feeds need to be added, add them in "feeds.conf.default" file.
 
+#### Load packages list
+```ruby
+./scripts/feeds update -a
+```
+
+To prepare a single package and its dependencies:
+```ruby
+./scripts/feeds install <packagename>
+```
+
+To make all packages available, again, just like in the buildroot:
+```ruby
+./scripts/feeds install -a
+```
+
+After the Makefile is in place, the usual buildroot commands apply:
+
+* make package/example/download - download the soures of example
+* make package/example/prepare - extract the sources, apply patches and download if necessary
+* make package/example/compile - compile example, prepare and download if necessary
+* make package/example/clean - clean the sourcecode
+* make package/index - build a repository index to make the output directory usable as local opkg source
+
+
+Or, just run make to build everything selected. After the compilation is finished, the generated .ipk files are placed in the bin/packages and bin/targets directories inside the directory you extracted the SDK into.
+
+
+
 ## Connecting to a Wireless Network
 
 We need Internet connection in the Router to install new packages. 
