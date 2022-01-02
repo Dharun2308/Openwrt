@@ -2,6 +2,5 @@
 
 # shell file to make image using full CPU POWER
 
-make -j$(nproc)
-
-
+make download
+make -j $(($(nproc)+1)) 
