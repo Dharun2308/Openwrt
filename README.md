@@ -2,6 +2,7 @@
 
 ## Table of contents
 * [General info](#general-info)
+* [Build using imagebuilder](#Build-using-imagebuilder)
 * [Connecting to a Wireless Network](#Connecting-to-a-Wireless-Network)
 * [Luci Web Interface](#Luci-Web-Interface)
 * [USB Tethering](#usb-tethering)
@@ -15,8 +16,7 @@
 * [Other](#other)
 
 
-## Downloads link
-https://downloads.openwrt.org
+
 
 
 ## General info
@@ -30,6 +30,10 @@ https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-proje
 https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax
 
 
+## Build using imagebuilder
+
+### Downloads link
+https://downloads.openwrt.org
 
 ## Connecting to a Wireless Network
 
