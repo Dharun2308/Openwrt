@@ -32,6 +32,10 @@ https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-proje
 
 https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax
 
+Some major tutorials:
+
+https://kenfavors.com/code/how-to-protect-ssh-with-fail2ban/
+
 
 ## Build using imagebuilder
 
