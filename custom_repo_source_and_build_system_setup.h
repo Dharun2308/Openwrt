@@ -53,6 +53,8 @@ make -j $(($(nproc)+1)) kernel_menuconfig
 
 # Finally make the image
 
+make download
+
 make -j $(($(nproc)+1)) || clear && echo Error building image
 
 clear
