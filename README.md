@@ -72,6 +72,9 @@ https://bmaupin.github.io/wiki/other/openwrt/openwrt-80211s.html
 
 ## Build Custom packages
 
+https://forum.openwrt.org/t/solved-add-a-new-package-to-the-source/11542
+
+http://dvblog.soabit.com/building-custom-openwrt-packages-an-hopefully-complete-guide/
 
 
 ## Build packages using SDK 
