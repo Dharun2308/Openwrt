@@ -17,6 +17,8 @@ sudo apt update -y
 
 sudo apt upgrade -y
 
+clear
+
 # Clone the source code
 
 git clone https://git.openwrt.org/openwrt/openwrt.git
