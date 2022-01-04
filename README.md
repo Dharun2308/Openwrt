@@ -76,6 +76,15 @@ https://forum.openwrt.org/t/solved-add-a-new-package-to-the-source/11542
 
 http://dvblog.soabit.com/building-custom-openwrt-packages-an-hopefully-complete-guide/
 
+https://github.com/mwarning/openwrt-examples/blob/master/README.md
+
+custom package feed:
+
+https://stackoverflow.com/questions/57845074/how-does-one-create-a-custom-package-feed-in-openwrt
+
+https://github.com/plan44/plan44-feed
+
+
 
 ## Build packages using SDK 
 
