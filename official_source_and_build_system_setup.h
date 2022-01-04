@@ -19,9 +19,24 @@ sudo apt upgrade -y
 
 clear
 
+git clone https://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@github.com/dharun2308/openwrt.git
+
+clear
+
+mv openwrt/openwrt* ./source_temp || echo Error deleting unwanted files!! Will not work as intended..
+
+sudo rm -r openwrt*
+
 # Clone the source code
 
 git clone https://git.openwrt.org/openwrt/openwrt.git
+
+cp -r source_temp/files/ openwrt/files
+cp source_temp/.config openwrt/.config
+cp source_temp/target/linux/generic/hack-5.4/690-mptcp_v0.96.patch openwrt/target/linux/generic/hack-5.4/690-mptcp_v0.96.patch
+cp source_temp/target/linux/bcm27xx/bcm2711/config-5.4  openwrt/target/linux/bcm27xx/bcm2711/config-5.4
+
+sudo rm -r source_temp/
 
 cd openwrt
 
@@ -35,41 +50,23 @@ echo "src-git openmptcprouter https://github.com/Ysurac/openmptcprouter-feeds.gi
 
 ./scripts/feeds install -a
 
-git clone https://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@github.com/dharun2308/openwrt.git
-
-clear
-
-mv openwrt/openwrt* ./openwrt || echo Error deleting unwanted files!! Will not work as intended..
-
-
-# curl 'https://raw.githubusercontent.com/Ysurac/openmptcprouter/develop/root/target/linux/generic/hack-5.4/690-mptcp_trunk.patch' -o target/linux/bcm27xx/patches-5.4/690-mptcp_trunk.patch && \
-# curl 'https://raw.githubusercontent.com/Ysurac/openmptcprouter/develop/root/target/linux/generic/hack-5.4/692-tcp_nanqinlang.patch' -o target/linux/bcm27xx/patches-5.4/692-tcp_nanqinlang.patch && \
-# curl 'https://raw.githubusercontent.com/Ysurac/openmptcprouter/develop/root/target/linux/generic/hack-5.4/693-tcp_bbr2.patch' -o target/linux/bcm27xx/patches-5.4/693-tcp_bbr2.patch && \
-# curl 'https://raw.githubusercontent.com/Ysurac/openmptcprouter/develop/root/target/linux/generic/hack-5.4/998-ndpi-netfilter.patch' -o target/linux/bcm27xx/patches-5.4/998-ndpi-netfilter.patch && \
-# curl 'https://raw.githubusercontent.com/Ysurac/openmptcprouter/develop/root/target/linux/generic/hack-5.4/999-stop-promiscuous-info.patch' -o target/linux/bcm27xx/patches-5.4/999-stop-promiscuous-info.patch
-
-#curl 'https://raw.githubusercontent.com/Ysurac/openmptcprouter/develop/root/target/linux/generic/hack-5.4/690-mptcp_trunk.patch' -o target/linux/generic/hack-5.4/690-mptcp_trunk.patch
-
-curl 'https://raw.githubusercontent.com/arinc9/openwrt/openwrt-21.02-mptcpv0/target/linux/generic/hack-5.4/690-mptcp_v0.96.patch' -o target/linux/generic/hack-5.4/690-mptcp_v0.96.patch
-# Apply MPTCP kernel patches Only for x86 target
-
-# curl 'https://raw.githubusercontent.com/Ysurac/openmptcprouter/develop/root/target/linux/generic/hack-5.4/690-mptcp_trunk.patch' -o target/linux/x86/patches-5.4/690-mptcp_trunk.patch && \
-# curl 'https://raw.githubusercontent.com/Ysurac/openmptcprouter/develop/root/target/linux/generic/hack-5.4/692-tcp_nanqinlang.patch' -o target/linux/x86/patches-5.4/692-tcp_nanqinlang.patch && \
-# curl 'https://raw.githubusercontent.com/Ysurac/openmptcprouter/develop/root/target/linux/generic/hack-5.4/693-tcp_bbr2.patch' -o target/linux/x86/patches-5.4/693-tcp_bbr2.patch && \
-# curl 'https://raw.githubusercontent.com/Ysurac/openmptcprouter/develop/root/target/linux/generic/hack-5.4/998-ndpi-netfilter.patch' -o target/linux/x86/patches-5.4/998-ndpi-netfilter.patch && \
-# curl 'https://raw.githubusercontent.com/Ysurac/openmptcprouter/develop/root/target/linux/generic/hack-5.4/999-stop-promiscuous-info.patch' -o target/linux/x86/patches-5.4/999-stop-promiscuous-info.patch
-
-# Test the patches to see if they're applied fine 
-
 make menuconfig -j$(nproc)
+
+# Test the patches to see if they're applied fine
 
 make target/linux/{clean,prepare} V=s
 
-make kernel_menuconfig -j$(nproc)
+clear 
+
+make -j $(($(nproc)+1)) kernel_menuconfig
 
 # Finally make the image
 
-make -j$(nproc)
+make download
+
+make -j $(($(nproc)+1)) || clear && echo Error building image
+
+clear
 
 
 
