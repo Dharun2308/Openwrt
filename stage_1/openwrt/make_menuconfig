@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# shell file to make menuconfig
+
+make -j$(nproc) menuconfig
+

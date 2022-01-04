@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# shell file to make kernel configuration menu
+
+make kernel_menuconfig -j$(nproc)
+
