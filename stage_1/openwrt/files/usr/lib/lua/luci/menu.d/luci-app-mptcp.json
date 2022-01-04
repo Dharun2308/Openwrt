@@ -1,0 +1,13 @@
+{
+	"admin/network/mptcp": {
+		"title": "Network Aggregation",
+		"order": 10,
+		"action": {
+			"type": "cbi",
+			"path": "mptcp"
+		},
+		"depends": {
+			"acl": [ "luci-app-mptcp" ]
+		}
+	}
+}

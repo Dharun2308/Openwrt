@@ -1,0 +1,109 @@
+<%#
+ Copyright 2008 Steven Barth <steven@midlink.org>
+ Copyright 2008-2012 Jo-Philipp Wich <jow@openwrt.org>
+ Licensed to the public under the Apache License 2.0.
+-%>
+
+<%+header%>
+<style>
+
+.bk{
+	height: 230px;
+width: 230px;
+float: right;
+
+}
+
+.container{
+	visibility:hidden
+}
+
+.admin{
+	visibility:visible;
+	margin:10%;
+	padding:2%;
+	background: rgba(255,255,255,0.9);
+	 box-shadow: 1px 8px 8px 1px black;
+}
+
+	body{
+	background-position: center;
+	background-image: url("<%=media%>/body.jpg");
+	background-size: cover;
+}
+
+
+
+}
+
+</style>
+<div class="admin" style= "display:block">
+
+<form method="post" action="<%=pcdata(FULL_REQUEST_URI)%>">
+	<%- if fuser then %>
+		<div class="alert-message warning">
+			<p><%:Invalid username and/or password! Please try again.%></p>
+		</div>
+	<% end -%>
+<img class="bk" src="<%=media%>/background.png" alt="login" >
+
+	<div class="cbi-map">
+		<h2 name="content" style="margin:3%"><img class="logo" src="<%=media%>/logo.png" alt="logo" width="30px"
+                                        	height="30px"><%:Admin Login%></h2>
+		<div class="cbi-section"><div class="cbi-section-node">
+			<div class="cbi-value">
+				<label class="cbi-value-title"><%:Username%></label>
+				<div class="cbi-value-field">
+					<input class="cbi-input-text" type="text" name="luci_username" />
+				</div>
+			</div>
+			<div class="cbi-value cbi-value-last">
+				<label class="cbi-value-title"><%:Password%></label>
+				<div class="cbi-value-field">
+					<input class="cbi-input-text" type="password" name="luci_password" />
+				</div>
+			</div>
+		</div></div>
+	</div>
+
+	<div class="cbi-page-actions">
+		<input type="submit" value="<%:Login%>" class="btn cbi-button cbi-button-apply" />
+		<input type="reset" value="<%:Reset%>" class="btn cbi-button cbi-button-reset" />
+	</div>
+</form>
+</div>
+<script type="text/javascript">//<![CDATA[
+	var input = document.getElementsByName('luci_password')[0];
+	if (input)
+		input.focus();
+//]]></script>
+
+<%
+local uci  = require "luci.model.uci".cursor()
+local fs  = require "nixio.fs"
+local https_key = uci:get("uhttpd", "main", "key")
+local https_port = uci:get("uhttpd", "main", "listen_https")
+if type(https_port) == "table" then
+	https_port = https_port[1]
+end
+
+if https_port and fs.access(https_key) then
+	https_port = https_port:match("(%d+)$")
+%>
+
+<script type="text/javascript">//<![CDATA[
+	if (document.location.protocol != 'https:') {
+		var url = 'https://' + window.location.hostname + ':' + '<%=https_port%>' + window.location.pathname;
+		var img=new Image;
+		img.onload=function(){window.location = url};
+		img.src='https://' + window.location.hostname + ':' + '<%=https_port%>' + '<%=resource%>/cbi/up.gif?' + Math.random();;
+		setTimeout(function(){
+			img.src=''
+		}, 5000);
+	}
+//]]></script>
+
+<% end %>
+
+<%+footer%>
+
