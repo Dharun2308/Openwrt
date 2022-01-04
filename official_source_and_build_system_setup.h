@@ -35,13 +35,12 @@ echo "src-git openmptcprouter https://github.com/Ysurac/openmptcprouter-feeds.gi
 
 ./scripts/feeds install -a
 
-# Download the config file and replace existing config file
+git clone https://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@github.com/dharun2308/openwrt.git
 
-sudo rm .config
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1l0PvxGo07vF7VlfjIKpg1CBbblb61GDU' -O .config
+clear
 
+mv openwrt/openwrt* ./openwrt || echo Error deleting unwanted files!! Will not work as intended..
 
-# Apply MPTCP kernel patches Only for bcm27xx target
 
 # curl 'https://raw.githubusercontent.com/Ysurac/openmptcprouter/develop/root/target/linux/generic/hack-5.4/690-mptcp_trunk.patch' -o target/linux/bcm27xx/patches-5.4/690-mptcp_trunk.patch && \
 # curl 'https://raw.githubusercontent.com/Ysurac/openmptcprouter/develop/root/target/linux/generic/hack-5.4/692-tcp_nanqinlang.patch' -o target/linux/bcm27xx/patches-5.4/692-tcp_nanqinlang.patch && \
