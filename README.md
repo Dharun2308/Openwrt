@@ -193,10 +193,10 @@ dig TXT +short o-o.myaddr.l.google.com @ns1.google.com
 sudo ./openvpn-ubuntu-install.sh
 ```
  Select from options:
-   * 1) Add a new client
-   * 2) Revoke an existing client
-   * 3) Remove OpenVPN
-   * 4) Exit
+   * Add a new client
+   * Revoke an existing client
+   * Remove OpenVPN
+   * Exit
 
 ## Connecting to a Wireless Network
 
