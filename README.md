@@ -5,6 +5,7 @@
 * [Build using imagebuilder](#Build-using-imagebuilder)
 * [Build Custom packages](#Build-Custom-packages)
 * [Build packages using SDK](#Build-packages-using-SDK)
+* [OpenVPN server setup](#OpenVPN-server-setup)
 * [Connecting to a Wireless Network](#Connecting-to-a-Wireless-Network)
 * [Luci Web Interface](#Luci-Web-Interface)
 * [USB Tethering](#usb-tethering)
@@ -133,6 +134,8 @@ After the Makefile is in place, the usual buildroot commands apply:
 
 Or, just run make to build everything selected. After the compilation is finished, the generated .ipk files are placed in the bin/packages and bin/targets directories inside the directory you extracted the SDK into.
 
+
+## OpenVPN server setup
 
 
 ## Connecting to a Wireless Network
