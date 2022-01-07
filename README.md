@@ -183,7 +183,20 @@ sudo systemctl status openvpn@server.service
 # To edit configuration file 
 nano /etc/openvpn/server.conf
 
+# To check connection run following commands on client device. Run ping and then check ip on next command
+ping -c 4 10.8.0.1
+dig TXT +short o-o.myaddr.l.google.com @ns1.google.com
 ```
+
+```ruby
+# To add new user 
+sudo ./openvpn-ubuntu-install.sh
+```
+ Select from options:
+   * 1) Add a new client
+   * 2) Revoke an existing client
+   * 3) Remove OpenVPN
+   * 4) Exit
 
 ## Connecting to a Wireless Network
 
