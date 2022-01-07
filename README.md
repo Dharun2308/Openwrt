@@ -198,6 +198,9 @@ sudo ./openvpn-ubuntu-install.sh
    * Remove OpenVPN
    * Exit
 
+For troubleshooting vist bottom of the following link : https://www.cyberciti.biz/faq/ubuntu-20-04-lts-set-up-openvpn-server-in-5-minutes/
+
+
 ## Connecting to a Wireless Network
 
 We need Internet connection in the Router to install new packages. 
