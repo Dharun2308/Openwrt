@@ -160,6 +160,31 @@ sudo ./openvpn-ubuntu-install.sh
 
 ```
 
+```ruby
+# check private IP
+# check public IP
+# Select port of VPN server
+# Select TCP or UDP
+# Select DNS server
+# Select client name, password option and set password
+
+# start server
+sudo systemctl start openvpn@server.service
+
+# stop server
+sudo systemctl stop openvpn@server.service
+
+# Restart service after changing any configuration
+sudo systemctl restart openvpn@server.service
+
+# To get status
+sudo systemctl status openvpn@server.service
+
+# To edit configuration file 
+nano /etc/openvpn/server.conf
+
+```
+
 ## Connecting to a Wireless Network
 
 We need Internet connection in the Router to install new packages. 
