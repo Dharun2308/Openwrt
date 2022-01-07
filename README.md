@@ -137,6 +137,28 @@ Or, just run make to build everything selected. After the compilation is finishe
 
 ## OpenVPN server setup
 
+Referenced from : https://www.cyberciti.biz/faq/ubuntu-20-04-lts-set-up-openvpn-server-in-5-minutes/
+
+```ruby
+sudo apt update
+sudo apt upgrade
+
+# Get your private ip address ( the shell script automatically finds it, but note it just for reference)
+ip a show eth0 | grep inet
+
+# Get your public ip address ( the shell script automatically finds it, but note it just for reference)
+dig -4 +short myip.opendns.com @resolver1.opendns.com
+
+# Download the shell script
+wget -L https://raw.githubusercontent.com/Dharun2308/myfiles/main/other/openvpn-ubuntu-install.sh
+
+# Make the file executable
+chmod -v +x openvpn-ubuntu-install.sh
+
+# Run the script
+sudo ./openvpn-ubuntu-install.sh
+
+```
 
 ## Connecting to a Wireless Network
 
