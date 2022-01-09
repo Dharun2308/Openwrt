@@ -4,6 +4,7 @@
 * [General info](#general-info)
 * [Build using imagebuilder](#Build-using-imagebuilder)
 * [Build Custom packages](#Build-Custom-packages)
+* [Host packages for devices in custom feed](#Host-packages-for-devices-in-custom-feed)
 * [Build packages using SDK](#Build-packages-using-SDK)
 * [OpenVPN server setup](#OpenVPN-server-setup)
 * [Connecting to a Wireless Network](#Connecting-to-a-Wireless-Network)
@@ -84,6 +85,11 @@ custom package feed:
 https://stackoverflow.com/questions/57845074/how-does-one-create-a-custom-package-feed-in-openwrt
 
 https://github.com/plan44/plan44-feed
+
+
+## Host packages for devices in custom feed
+
+
 
 
 
