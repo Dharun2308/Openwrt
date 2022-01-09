@@ -5,6 +5,7 @@
 * [Build using imagebuilder](#Build-using-imagebuilder)
 * [Build Custom packages](#Build-Custom-packages)
 * [Host packages for devices in custom feed](#Host-packages-for-devices-in-custom-feed)
+* [Router as switch](#Router-as-switch)
 * [Build packages using SDK](#Build-packages-using-SDK)
 * [OpenVPN server setup](#OpenVPN-server-setup)
 * [Connecting to a Wireless Network](#Connecting-to-a-Wireless-Network)
@@ -88,6 +89,7 @@ https://github.com/plan44/plan44-feed
 
 
 ## Host packages for devices in custom feed
+
 
 
 
@@ -206,6 +208,94 @@ sudo ./openvpn-ubuntu-install.sh
 
 For troubleshooting vist bottom of the following link : https://www.cyberciti.biz/faq/ubuntu-20-04-lts-set-up-openvpn-server-in-5-minutes/
 
+
+## Router as switch
+
+Tutorial link: https://www.youtube.com/watch?v=OGIJpqfHwkw&t=0s
+
+### Main router config (RPI 4)
+lan config in /etc/config/network
+```ruby 
+config device
+        option name 'br-lan'
+        option type 'bridge'
+        list ports 'eth0'
+
+config interface 'lan'
+        option device 'br-lan'
+        option proto 'static'
+        option ipaddr '192.168.1.1'
+        option netmask '255.255.255.0'
+        option delegate '0'
+        option multipath 'off'
+```
+wireless config in /etc/config/wireless
+
+```ruby
+config wifi-device 'radio0'
+        option type 'mac80211'
+        option path 'platform/soc/fe300000.mmcnr/mmc_host/mmc1/mmc1:0001/mmc1:0001:1'
+        option cell_density '0'
+        option htmode 'VHT40'
+        option hwmode '11a'
+        option channel '44'
+        
+config wifi-iface 'wifinet1'
+        option device 'radio0'
+        option mode 'ap'
+        option ssid 'mesh'
+        option key 'Dharun@123'
+        option ieee80211r '1'
+        option nasid '12345'
+        option ft_over_ds '1'
+        option ft_psk_generate_local '1'
+        option network 'lan'
+        option encryption 'psk-mixed'
+        option mobility_domain 'ab12'
+```
+
+### Switch router config (MI4C)
+
+lan config in /etc/config/network
+```c
+config device
+        option name 'br-lan'
+        option type 'bridge'
+        list ports 'eth0.1'
+
+config interface 'lan'
+        option device 'br-lan'
+        option proto 'static'
+        option netmask '255.255.255.0'
+        option ipaddr '192.168.1.5'
+        option delegate '0'
+        option gateway '192.168.1.1'
+```
+wireless config in /etc/config/wireless
+
+```ruby
+config wifi-device 'radio0'
+        option type 'mac80211'
+        option channel '11'
+        option hwmode '11g'
+        option path 'platform/10300000.wmac'
+        option cell_density '0'
+        option txpower '14'
+        option htmode 'HT40'
+
+config wifi-iface 'mesh'
+        option device 'radio0'
+        option key 'Dharun@123'
+        option mode 'ap'
+        option ssid 'mesh'
+        option encryption 'psk-mixed'
+        option ieee80211r '1'
+        option nasid '12346'
+        option mobility_domain 'ab12'
+        option ft_over_ds '1'
+        option ft_psk_generate_local '1'
+        option network 'mesh lan'
+```
 
 ## Connecting to a Wireless Network
 
