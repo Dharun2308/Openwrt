@@ -8,6 +8,8 @@
 * [Build packages using SDK](#Build-packages-using-SDK)
 * [OpenVPN server setup](#OpenVPN-server-setup)
 * [Router as switch](#Router-as-switch)
+* [802.11s Mesh](#802.11s-Mesh)
+* [Openwrt on TP Link Archer C7 v5 AC1750](#Openwrt-on-TP-Link-Archer-C7-v5-AC1750)
 * [Connecting to a Wireless Network](#Connecting-to-a-Wireless-Network)
 * [Luci Web Interface](#Luci-Web-Interface)
 * [USB Tethering](#usb-tethering)
@@ -38,6 +40,12 @@ https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting
 Some major tutorials:
 
 https://kenfavors.com/code/how-to-protect-ssh-with-fail2ban/
+
+### Openwrt Table of Hardware
+
+Check devices supported by openwrt 
+
+https://openwrt.org/toh/views/toh_extended_all
 
 
 ## Build using imagebuilder
@@ -296,6 +304,42 @@ config wifi-iface 'mesh'
         option ft_psk_generate_local '1'
         option network 'mesh lan'
 ```
+
+
+## 802.11s Mesh
+
+Youtube Tutorial: https://www.youtube.com/watch?v=cw8ykKgVKbM&t=159s
+
+Setup the 2nd node router as a switch (https://www.youtube.com/watch?v=OGIJpqfHwkw&t=0s) and then use above tutorial for mesh
+
+Openwrt forum links:
+https://forum.openwrt.org/t/best-wireless-mesh-setup-with-openwrt/73570
+
+https://forum.openwrt.org/t/mesh-performance-with-various-routers/104317
+
+Linksys WRT3200ACM does not support mesh : https://github.com/kaloz/mwlwifi/issues?utf8=✓&q=is%3Aissue+802.11s
+
+
+#### Libre Mesh:
+
+Suggested hardware and basic requirements info: https://libremesh.org/docs/hardware/
+
+Suitable openwrt devices : https://openwrt.org/toh/views/toh_extended_all?datasrt=availability&dataflt%5BWLAN%20driver_wlan-drivers%2A~%5D=ath9k&dataflt%5BWLAN%205.0GHz%2A~%5D=n&dataflt%5BWLAN%202.4GHz%2A~%5D=n&dataflt%5BSupported%20Current%20Rel%2A~%5D=.0
+
+
+
+
+
+## Openwrt on TP Link Archer C7 v5 AC1750
+
+
+Some forum links:
+https://forum.openwrt.org/t/archer-c7-v5-new-one-installing-openwrt-process/79435
+
+Tech Data:
+https://openwrt.org/toh/hwdata/tp-link/tp-link_archer_c7_v5
+
+
 
 ## Connecting to a Wireless Network
 
