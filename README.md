@@ -332,9 +332,13 @@ Suitable openwrt devices : https://openwrt.org/toh/views/toh_extended_all?datasr
 
 ## Openwrt on TP Link Archer C7 v5 AC1750
 
+For Archer C7 v1.1, v2, v2.1, v4, and V5 (fw1.0.11), installing OpenWrt is confirmed to work by simply uploading the OpenWrt firmware in the stock OEM's firmware-upgrade page. Please note, however, that this page will refuse to install firmware uploaded with a long filename. To bypass this limitation, download the relevant factory-flash BIN-file and then rename the file to firmware.bin before uploading.
 
 Some forum links:
 https://forum.openwrt.org/t/archer-c7-v5-new-one-installing-openwrt-process/79435
+
+Device details page and installation guides:
+https://openwrt.org/toh/tp-link/archer_c7
 
 Tech Data:
 https://openwrt.org/toh/hwdata/tp-link/tp-link_archer_c7_v5
