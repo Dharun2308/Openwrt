@@ -343,6 +343,9 @@ https://openwrt.org/toh/tp-link/archer_c7
 Tech Data:
 https://openwrt.org/toh/hwdata/tp-link/tp-link_archer_c7_v5
 
+Revert to stock Firmware:
+https://forum.openwrt.org/t/help-required-to-revert-to-stock-tp-link-archer-c7-v4-eu/17641/7?u=dharun_561
+
 
 
 ## Connecting to a Wireless Network
