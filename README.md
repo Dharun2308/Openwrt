@@ -6,10 +6,12 @@
 * [Build Custom packages](#Build-Custom-packages)
 * [Host packages for devices in custom feed](#Host-packages-for-devices-in-custom-feed)
 * [Build packages using SDK](#Build-packages-using-SDK)
+* [Setting up a TFTP server for TFTP](#Setting-up-a-TFTP-server-for-TFTP)
 * [OpenVPN server setup](#OpenVPN-server-setup)
 * [Router as switch](#Router-as-switch)
 * [802.11s Mesh](#802.11s-Mesh)
 * [Openwrt on TP Link Archer C7 v5 AC1750](#Openwrt-on-TP-Link-Archer-C7-v5-AC1750)
+* [Openwrt on TP Link Archer C2600](#Openwrt-on-TP-Link-Archer-C2600)
 * [Connecting to a Wireless Network](#Connecting-to-a-Wireless-Network)
 * [Luci Web Interface](#Luci-Web-Interface)
 * [USB Tethering](#usb-tethering)
@@ -46,6 +48,9 @@ https://kenfavors.com/code/how-to-protect-ssh-with-fail2ban/
 Check devices supported by openwrt 
 
 https://openwrt.org/toh/views/toh_extended_all
+
+### Openwrt firmware selector
+https://firmware-selector.openwrt.org
 
 
 ## Build using imagebuilder
@@ -150,6 +155,10 @@ After the Makefile is in place, the usual buildroot commands apply:
 
 Or, just run make to build everything selected. After the compilation is finished, the generated .ipk files are placed in the bin/packages and bin/targets directories inside the directory you extracted the SDK into.
 
+
+## Setting up a TFTP server for TFTP]
+
+Link : https://openwrt.org/docs/guide-user/troubleshooting/tftpserver#setting_up_tftp_server
 
 ## OpenVPN server setup
 
@@ -346,6 +355,17 @@ https://openwrt.org/toh/hwdata/tp-link/tp-link_archer_c7_v5
 Revert to stock Firmware:
 https://forum.openwrt.org/t/help-required-to-revert-to-stock-tp-link-archer-c7-v4-eu/17641/7?u=dharun_561
 
+
+
+## Openwrt on TP Link Archer C2600
+
+On Version 1.1 of this device, the factory default username and password doesn't work. Hence the need to use TFTP to load OpenWrt.
+
+Tech data:
+https://openwrt.org/toh/tp-link/archer_c2600_v1
+
+Forum links:
+https://forum.openwrt.org/t/installing-openwrt-on-archer-c2600-v1-1/116160
 
 
 ## Connecting to a Wireless Network
