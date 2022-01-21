@@ -52,6 +52,14 @@ https://openwrt.org/toh/views/toh_extended_all
 ### Openwrt firmware selector
 https://firmware-selector.openwrt.org
 
+### Flash new image on router 
+Place image file in /
+
+Execute command:
+```ruby
+sysupgrade -v -n -F /image_file_name.img.gz
+```
+
 
 ## Build using imagebuilder
 
@@ -584,6 +592,42 @@ opkg install openvpn-openssl luci-app-openvpn
 
 ## Other
 
+### MPTCP Enabled VPS:
+Steps To How to configure VPS with MPTCP:
+
+In order to install the Multipath TCP enabled Kernel do the following steps: 
+```ruby
+sudo apt update
+sudo apt upgrade
+wget https://raw.githubusercontent.com/onemarcfifty/mptcp-tools/main/makescript.sh
+chmod 755 makescript.sh
+./makescript.sh
+# This creates the fetch_ycarus_kernel.sh
+chmod 755 fetch_ycarus_kernel.sh
+./fetch_ycarus_kernel.sh
+# This now creates two debian packages in the /tmp directory
+sudo apt install /tmp/linux-image*
+sudo apt install /tmp/linux-headers*
+sudo apt upgrade
+sudo reboot
+``
+
+Now restart os & check by following cmd if MPTCP enabled or not.
+```
+curl http://multipath-tcp.org
+```
+You will get MPTCP enabled or disabled message.
+
+
+### Docker shadowsocks server on Ubuntu
+
+Edit docker-compose.yml file for changing configuration.
+```c
+sudo apt install docker-compose
+curl -sSLO https://github.com/shadowsocks/shadowsocks-libev/raw/master/docker/alpine/docker-compose.yml
+sudo docker-compose up -d
+```
+
 
 ### To see live logs
         logread -f
@@ -598,6 +642,22 @@ opkg install openvpn-openssl luci-app-openvpn
 ### Ping with specific time duration and interface
         ping -c 1 -I eth0.1 www.google.com
 
+### wget from Google Drive
+
+Steps:
+1.	Select a file that is need to be downloaded and do right click.
+2.	Click Share. A dialog box will appear.
+3.	Click Advance in the right bottom corner.
+4.	Click on the Change.. under who has access.
+5.	Make it On- Public on the web.
+6.	Click Save button.
+7.	Copy the link for sharing…like…https://drive.google.com/file/d/1UibyVC_C2hoT_XEw15gPEwPW4yFyJFeOEA/view?usp=sharing
+8.	Extrac FILEID part like….from above….1UibyVC_C2hoT_XEw15gPEwPW4yFyJFeOEA
+
+For small file run following command on your terminal:
+```ruby
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=FILEID' -O FILENAME
+```
 
 
 ### UCI commands
@@ -631,15 +691,15 @@ https://serverfault.com/questions/904649/route-only-packets-from-specific-interf
 https://openwrt.org/docs/guide-user/base-system/cron
 
 
-## run executable .txt in terminal of linux
+### run executable .txt in terminal of linux
 https://www.quora.com/How-do-I-run-executable-txt-in-terminal-of-linux
 
 
-## OpenWrt Package manager
+### OpenWrt Package manager
 
 https://openwrt.org/docs/guide-user/additional-software/opkg
 
-## Finding files
+### Finding files
 
         find . -name "*file-name*"
         find / -name "*jpg"
@@ -648,24 +708,24 @@ https://www.howtoforge.com/tutorial/linux-search-files-from-the-terminal/
 ##
 https://www.plesk.com/blog/various/find-files-in-linux-via-command-line/
 
-## Using storage devices
+### Using storage devices
 
 https://openwrt.org/docs/guide-user/storage/usb-drives
 
 
-## Expanding root filesystem
+### Expanding root filesystem
 https://openwrt.org/docs/guide-user/additional-software/extroot_configuration
 
-## Resetting the router
+### Resetting the router
 
 https://openwrt.org/docs/guide-user/troubleshooting/failsafe_and_factory_reset
 
 
-## Shell Scripts
+### Shell Scripts
 https://openwrt.org/docs/techref/initscripts
 
 
-## Backing up a SD card or cloning it to computer
+### Backing up a SD card or cloning it to computer
 https://magpi.raspberrypi.org/articles/back-up-raspberry-pi
 For Ubuntu
     
@@ -677,5 +737,5 @@ For Mac
         
     sudo dd bs=4m if=/dev/rdisk2 of=raspbian.img
 
-# New topic
+
  
