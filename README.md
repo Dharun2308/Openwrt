@@ -11,6 +11,7 @@
 * [Router as switch](#Router-as-switch)
 * [802.11s Mesh](#802.11s-Mesh)
 * [Openwrt on TP Link Archer C7 v5 AC1750](#Openwrt-on-TP-Link-Archer-C7-v5-AC1750)
+* [Openwrt on TP Link Archer A7 v5](#Openwrt-on-TP-Link-Archer-A7-v5)
 * [Openwrt on TP Link Archer C2600](#Openwrt-on-TP-Link-Archer-C2600)
 * [Connecting to a Wireless Network](#Connecting-to-a-Wireless-Network)
 * [Luci Web Interface](#Luci-Web-Interface)
@@ -373,6 +374,11 @@ Builds with SFE enabled can be found here : https://github.com/gwlim/openwrt-sfe
 
 Image with SFE on for TP Link Archer C7 v5 AC1750 https://github.com/gwlim/openwrt-sfe-flowoffload-ath79/blob/master/MAY-2020/openwrt-sfe-flowoffload-normal/TP-Link%20Archer%20C7v5-mips74k-ath10k/openwrt-ath79-generic-tplink_archer-c7-v5-squashfs-factory.bin
 
+
+## Openwrt on TP Link Archer A7 v5 
+The Archer A7 is very similar to the Archer C7, but it has its own set of firmware. One difference is that the A7's switch shows only eth0, but the C7's switch shows eth0 and eth1. It has five 1 GBit/s Ethernet ports and has 2.4GHz and 5GHz Wifi integrated
+
+Device page: https://openwrt.org/toh/tp-link/archer_a7_v5
 
 ## Openwrt on TP Link Archer C2600
 
