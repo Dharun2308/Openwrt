@@ -365,6 +365,13 @@ https://openwrt.org/toh/hwdata/tp-link/tp-link_archer_c7_v5
 Revert to stock Firmware:
 https://forum.openwrt.org/t/help-required-to-revert-to-stock-tp-link-archer-c7-v4-eu/17641/7?u=dharun_561
 
+Openwrt does not give good wifi speeds. Of my 450 Mbps I got only 180 Mbps on 5Ghz wifi and only 60 Mbps on 2.4 Ghz wifi. 
+
+On searching the openwrt forum(https://forum.openwrt.org/t/archer-c7-v5-poor-wireless-performance/53854), found that enabling SFE (Qualcom fast path) would improve the performance. Another forum link : https://forum.openwrt.org/t/qualcomm-fast-path-for-lede/4582/765?page=36
+
+Builds with SFE enabled can be found here : https://github.com/gwlim/openwrt-sfe-flowoffload
+
+Image with SFE on for TP Link Archer C7 v5 AC1750 https://github.com/gwlim/openwrt-sfe-flowoffload-ath79/blob/master/MAY-2020/openwrt-sfe-flowoffload-normal/TP-Link%20Archer%20C7v5-mips74k-ath10k/openwrt-ath79-generic-tplink_archer-c7-v5-squashfs-factory.bin
 
 
 ## Openwrt on TP Link Archer C2600
