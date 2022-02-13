@@ -657,6 +657,7 @@ To check file permissions:
 ```ruby
 ls –l filename
 ```
+<img width="384" alt="Screen Shot 2022-02-13 at 1 21 11 PM" src="https://user-images.githubusercontent.com/81893327/153768973-4dda9b49-8add-4206-ab0e-6da100765341.png">
 
 
 ### To see live logs
