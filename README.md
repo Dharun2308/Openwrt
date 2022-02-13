@@ -23,6 +23,7 @@
 * [SQM](#SQM)
 * [NAS](#NAS)
 * [OpenVPN Client](#OpenVPN-Client)
+* [Remote Logging](#Remote-Logging)
 * [Other](#other)
 
 
@@ -601,6 +602,13 @@ opkg update
 opkg install openvpn-openssl luci-app-openvpn
 ```
 
+## Remote Logging
+
+Follow tutorial from :
+http://www.aturnofthenut.com/2020/12/17/remote-logging-from-openwrt-to-rsyslog/
+
+and 
+https://openwrt.org/docs/guide-user/base-system/log.essentials
 
 
 ## Other
@@ -639,6 +647,15 @@ Edit docker-compose.yml file for changing configuration.
 sudo apt install docker-compose
 curl -sSLO https://github.com/shadowsocks/shadowsocks-libev/raw/master/docker/alpine/docker-compose.yml
 sudo docker-compose up -d
+```
+
+### Linux File Permissions
+
+Details : https://phoenixnap.com/kb/linux-file-permissions
+
+To check file permissions:
+```ruby
+ls –l filename
 ```
 
 
