@@ -19,7 +19,7 @@
 * [4G Dongle support](#4G-Dongle-support)
 * [Load balancing with multiple WAN interfaces](#Load-balancing-with-multiple-WAN-interfaces)
 * [Ad Block](#Ad-Block)
-* [Speed Test](#Speed-Test)
+* [Speed Test Ookla and Netperf](#Speed-Test-Ookla-and-Netperf)
 * [SQM](#SQM)
 * [NAS](#NAS)
 * [OpenVPN Client](#OpenVPN-Client)
@@ -539,7 +539,36 @@ opkg install adblock luci-app-adblock libustream-mbedtls20201210 tcpdump-mini
 ```
 
 
-## Speed Test 
+## Speed Test Ookla and Netperf
+
+### Speedtest by ookla
+
+To install with pip: 
+```ruby
+pip install speedtest-cli
+```
+
+To install with wget:
+```ruby
+wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
+chmod +x speedtest-cli
+```
+
+Speedtest package from official openwrt repo gives error. So modify the speedtest.py file with the help of following forum link.
+
+https://github.com/sivel/speedtest-cli/pull/769/files
+
+Modify line 1174. In nano editor press ctrl+w and search for "map(int, server_config['ignoreids'].split(','))" and replace with "map(int, (server_config['ignoreids'].split(',') if len(server_config['ignoreids']) else []) )"
+
+```ruby
+opkg update
+opkg install python3-speedtest-cli python3-speedtest-cli-src
+nano nano /usr/lib/python3.9/site-packages/speedtest.py
+```
+visit https://github.com/sivel/speedtest-cli for more updated speedtest package.
+
+
+### Netperf
 
 visit https://forum.openwrt.org/t/speedtest-new-package-to-measure-network-performance/24647/73
 
@@ -550,12 +579,6 @@ opkg install speedtest-netperf
 Getting speed test results
 ```ruby
 speedtest-netperf.sh -t 10 -n 10 -H netperf-eu.bufferbloat.net --sequential
-```
-## Speedtest by ookla
-visit https://github.com/sivel/speedtest-cli
-```ruby
-opkg update
-opkg install python3-speedtest-cli
 ```
 
 
