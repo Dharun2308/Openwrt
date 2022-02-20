@@ -11,6 +11,7 @@
 * [Router as switch](#Router-as-switch)
 * [802.11s Mesh](#802.11s-Mesh)
 * [Virtualbox](#Virtualbox)
+* [VPN Policy Based Routing](#VPN-Policy-Based-Routing)
 * [Openwrt on TP Link Archer C7 v5 AC1750](#Openwrt-on-TP-Link-Archer-C7-v5-AC1750)
 * [Openwrt on TP Link Archer A7 v5](#Openwrt-on-TP-Link-Archer-A7-v5)
 * [Openwrt on TP Link Archer C2600](#Openwrt-on-TP-Link-Archer-C2600)
@@ -355,6 +356,55 @@ Suitable openwrt devices : https://openwrt.org/toh/views/toh_extended_all?datasr
 
 https://www.toptechskills.com/linux-tutorials-courses/how-to-install-ubuntu-1804-bionic-virtualbox/
 
+Use the following link to find to download the requires ubuntu version iso Desktop image.
+
+http://releases.ubuntu.com
+
+Use the first link for further steps. Then execute the below commands to install MPTCP kernel:
+
+```ruby
+sudo git clone https://vinayak-df:zkafpCftPR6BYS3Ha4Aj@bitbucket.org/datafoundryai/arca_core_new.git -b VPS_configuration_setup VPS_Script && cd VPS_Script
+
+sudo chmod 755 vps_proxy_with_mptcp.sh
+
+sudo ./vps_proxy_with_mptcp.sh
+```
+
+After the above commands edit grub file to select MPTCP kernel on boot. Helpful link https://support.huaweicloud.com/intl/en-us/trouble-ecs/ecs_trouble_0327.html  and https://help.ubuntu.com/community/Grub2/Submenus
+
+```ruby
+nano /etc/default/grub
+```
+Comment the following line 
+```
+# GRUB_TIMEOUT_STYLE=hidden
+```
+Change grub timeout to 5 or 10 seconds
+```
+GRUB_TIMEOUT=10
+```
+Then run the following command to update grub
+```
+sudo update-grub
+```
+
+Reboot and select the MPTCP kernel on boot. Run the following command to check if it is MPTCP capable
+
+```
+curl http://multipath-tcp.org
+``` 
+
+## VPN Policy Based Routing
+
+https://docs.openwrt.melmac.net/vpn-policy-routing/
+
+Forum link:
+
+https://forum.openwrt.org/t/solved-multiple-vpn-connections-and-routing-setup-issue/66489/3
+
+https://forum.openwrt.org/t/solved-multiple-vpn-connections-and-routing-setup-issue/66489/4?u=dharun_561
+
+https://forum.openwrt.org/t/vpn-policy-based-routing-web-ui-discussion/10389/1564
 
 
 ## Openwrt on TP Link Archer C7 v5 AC1750
@@ -765,7 +815,8 @@ https://openwrt.org/docs/guide-user/additional-software/opkg
         find / -name "*jpg"
         
 https://www.howtoforge.com/tutorial/linux-search-files-from-the-terminal/
-##
+
+
 https://www.plesk.com/blog/various/find-files-in-linux-via-command-line/
 
 ### Using storage devices
