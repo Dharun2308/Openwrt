@@ -10,6 +10,7 @@
 * [OpenVPN server setup](#OpenVPN-server-setup)
 * [Router as switch](#Router-as-switch)
 * [802.11s Mesh](#802.11s-Mesh)
+* [Virtualbox](#Virtualbox)
 * [Openwrt on TP Link Archer C7 v5 AC1750](#Openwrt-on-TP-Link-Archer-C7-v5-AC1750)
 * [Openwrt on TP Link Archer A7 v5](#Openwrt-on-TP-Link-Archer-A7-v5)
 * [Openwrt on TP Link Archer C2600](#Openwrt-on-TP-Link-Archer-C2600)
@@ -348,6 +349,11 @@ Suggested hardware and basic requirements info: https://libremesh.org/docs/hardw
 Suitable openwrt devices : https://openwrt.org/toh/views/toh_extended_all?datasrt=availability&dataflt%5BWLAN%20driver_wlan-drivers%2A~%5D=ath9k&dataflt%5BWLAN%205.0GHz%2A~%5D=n&dataflt%5BWLAN%202.4GHz%2A~%5D=n&dataflt%5BSupported%20Current%20Rel%2A~%5D=.0
 
 
+## Virtualbox
+
+### Ubuntu 18
+
+https://www.toptechskills.com/linux-tutorials-courses/how-to-install-ubuntu-1804-bionic-virtualbox/
 
 
 
